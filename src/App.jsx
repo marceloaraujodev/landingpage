@@ -56,7 +56,7 @@ function App() {
                     </div>
                   </div>
                   <div className="product-img">
-                    <img className="grid-product-img" src="./public/cama.jpg" />
+                    <img className="grid-product-img" src="https://live.staticflickr.com/65535/53626614704_a06f47cfdc_b.jpg" />
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@ function App() {
                     <div className="product-img">
                       <img
                         className="grid-product-img"
-                        src="./public/cama.jpg"
+                        src="https://live.staticflickr.com/65535/53626614704_a06f47cfdc_b.jpg"
                       />
                     </div>
                     <div className="product-description-container-left">
@@ -221,7 +221,7 @@ function App() {
             O que faz os colchões x serem únicos?
           </div>
           <div className="hero2-container">
-            <img src="/public/sleep.png" />
+            <img src="https://live.staticflickr.com/65535/53626632129_dda35aa002_w.jpg" />
           </div>
         </section>
 
