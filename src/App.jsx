@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      <img src="./public/whats_icon.png" className="whats" />
+      <img src="https://w7.pngwing.com/pngs/645/890/png-transparent-computer-icons-logo-whatsapp-whatsapp-text-logo-whatsapp-icon-thumbnail.png" className="whats" />
       <div className="container-my">
         <header className="header">
           <p>Logo</p>
