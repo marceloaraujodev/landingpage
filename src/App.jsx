@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      <img src="https://w7.pngwing.com/pngs/28/331/png-transparent-green-call-icon-whatsapp-logo-whatsapp-text-trademark-grass.png" className="whats" />
+      <div className='whats'><i className="bi bi-whatsapp"></i></div>
+   
       <div className="container-my">
         <header className="header">
           <p>Logo</p>
@@ -221,7 +222,9 @@ function App() {
             O que faz os colchões x serem únicos?
           </div>
           <div className="hero2-container">
-            <img src="https://live.staticflickr.com/65535/53626632129_dda35aa002_w.jpg" />
+            <img src="https://live.staticflickr.com/65535/53626632129_dda35aa002_w.jpg" 
+              className='hero2-container-img'
+            />
           </div>
         </section>
 
