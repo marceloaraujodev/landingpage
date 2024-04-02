@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      <img src="https://w7.pngwing.com/pngs/645/890/png-transparent-computer-icons-logo-whatsapp-whatsapp-text-logo-whatsapp-icon-thumbnail.png" className="whats" />
+      <img src="https://w7.pngwing.com/pngs/28/331/png-transparent-green-call-icon-whatsapp-logo-whatsapp-text-trademark-grass.png" className="whats" />
       <div className="container-my">
         <header className="header">
           <p>Logo</p>
@@ -105,24 +105,24 @@ function App() {
             <div className="icon-content-container">
               <a href="#" className="icon-cards-sizes">
                 <img src="./solteiro.png" className="sizes-icon-img" />
-                <p>Colchão Soldeiro</p>
+                <p>Solteiro</p>
               </a>
 
               <a href="#" className="icon-cards-sizes">
                 <img src="./casal.png" className="sizes-icon-img" />
-                <p>Colchão Soldeiro</p>
+                <p>Solteiro King</p>
               </a>
               <a href="#" className="icon-cards-sizes">
                 <img src="./casal.png" className="sizes-icon-img" />
-                <p>Colchão Soldeiro</p>
+                <p>Casal</p>
               </a>
               <a href="#" className="icon-cards-sizes">
                 <img src="./casal.png" className="sizes-icon-img" />
-                <p>Colchão Soldeiro</p>
+                <p>Queen</p>
               </a>
               <a href="#" className="icon-cards-sizes">
                 <img src="./casal.png" className="sizes-icon-img" />
-                <p>Colchão Soldeiro</p>
+                <p>King</p>
               </a>
             </div>
           </div>
@@ -225,7 +225,7 @@ function App() {
           </div>
         </section>
 
-        <section className="review">
+        {/* <section className="review">
           <div className="review-container">
             <div className="review-container-inner">
               <div className="review-contentContainer">
@@ -321,7 +321,7 @@ function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <footer className="footer">
           <div className="footer-content-container">
@@ -329,6 +329,7 @@ function App() {
               <div className="footer-content">
                 <div className="footer-title">Localização</div>
                 <div className="footer-content-inner">
+                
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -348,10 +349,10 @@ function App() {
                       d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                     />
                   </svg>
-                  <p>
+                  <div className='address'>
                     Av. do Estado Dalmo Vieira, 570 Ariribá, Balneário
                     Camboriú-SC
-                  </p>
+                  </div>
                 </div>
               </div>
 
