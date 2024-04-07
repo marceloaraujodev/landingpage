@@ -523,42 +523,42 @@ section {
   .block-left {
     display: flex;
     justify-content: center;
-    align-items:flex-start;
+    align-items: flex-start;
     width: 60%;
     gap: 50px;
-}
-.footer-content-inner {
-  text-align: left;
-  padding: 5px 0;
-  height: 100%;
-}
-.footer-title{
-  text-align: center;
-  padding: 0;
-}
+  }
+  .footer-content-inner {
+    text-align: left;
+    padding: 5px 0;
+    height: 100%;
+  }
+  .footer-title {
+    text-align: center;
+    padding: 0;
+  }
 
-.address {
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 5px 0;
-}
-.phone {
-  font-size: 0.8rem;
-  text-align: center;
-}
-.icon-container-inner {
-  text-align: center;
-  height: 30px;
-  margin: 10px 0;
-}
-.footer-icon {
-  width: 30px;
-  height: 30px;
-}
-.footer-content-logo h1 {
-  margin-top: 0;
-  text-align: center;
-}
+  .address {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .phone {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .icon-container-inner {
+    text-align: center;
+    height: 30px;
+    margin: 10px 0;
+  }
+  .footer-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .footer-content-logo h1 {
+    margin-top: 0;
+    text-align: center;
+  }
 
   .footer-content-logo h1 {
     margin-bottom: 0;
