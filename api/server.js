@@ -2,20 +2,42 @@ const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 
 app.use(morgan('dev'));
 
 app.get('/', async (req, res) => {
-  const placeId = process.env.PLACE_ID
-  const apiKey = process.env.API_KEY
+  try {
+    const placeId = process.env.PLACE_ID
+    const apiKey = process.env.API_KEY
 
-  `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`;
+    if(!placeId || !apiKey){
+      return res.status(400).json({success: false, message: 'No placeId and or apiKey'});
+    }
+
+    const response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&reviews_no_translations=true&tranlated=false&key=${apiKey}`);
+
+
+
+    console.log(response.data.result.reviews)
+    const reviews = response.data.result.reviews;
+
+    res.status(200).json({
+      success: true,
+      data: reviews
+    })
+
+  } catch (error) {
+    console.log(error)
+  }
 
 
 

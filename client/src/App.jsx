@@ -1,41 +1,175 @@
 // import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import InstaCode from './InstaCode';
+// import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
+  const dummy = [
+    {
+      author_name: 'Tamaiane Bruck',
+      author_url:
+        'https://www.google.com/maps/contrib/113360326144067672734/reviews',
+      language: 'en-US',
+      original_language: 'pt',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a-/ALV-UjWlPAZAyi-bor_IYg5ZCKeQX5OxdgigCfts0GyIILavkm0PwTQd=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: 'a week ago',
+      text:
+        'Impeccable service, seller answered all questions. Fast delivery, left product assembled 🙏🤩\n' +
+        'I recommend',
+      time: 1712074015,
+      translated: true,
+    },
+    {
+      author_name: 'Douglas Soares de Lima',
+      author_url:
+        'https://www.google.com/maps/contrib/112228458909562481397/reviews',
+      language: 'en-US',
+      original_language: 'pt',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/ACg8ocJKcv4jI_K7JUy5_pPKahfXiwQ2g17exDxnhwdsDMQz6kkHYg=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: 'a year ago',
+      text:
+        'Excellent and differentiated service, both in the Bal Camboriú store and in the Itajaí store.\n' +
+        'Sellers concerned with customer satisfaction.\n' +
+        'I am very satisfied with the purchase of the Castor Casal Premium Gel One Face Pocket Mattress 138x188x32cm.\n' +
+        'Firm and comfortable.',
+      time: 1651496684,
+      translated: true,
+    },
+    {
+      author_name: 'Jacqueline Pereira da Silva',
+      author_url:
+        'https://www.google.com/maps/contrib/102231266518942833613/reviews',
+      language: 'en-US',
+      original_language: 'pt',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/ACg8ocJFyGcaGHtmYnybYmhr0hbBZ6khA5hDHkmNMZHhy4458wxang=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: '2 years ago',
+      text: 'Excellent service at the Balneário Camboriú store, by saleswoman Elisa, who spared no effort to reach a common goal between selling and purchasing. I was very satisfied. 😉🌻',
+      time: 1648736663,
+      translated: true,
+    },
+    {
+      author_name: 'Neusa Valentina Presente',
+      author_url:
+        'https://www.google.com/maps/contrib/103265381531148744836/reviews',
+      language: 'en-US',
+      original_language: 'pt',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/ACg8ocJD907Dfh1M_SbVpFceQJqX6fKulc8oyAx3_Ajf-HLmUoub6w=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: '2 years ago',
+      text: 'Excellent, the girl who helped me explained everything about the mattress, attentive to what I was saying, always very friendly, great service really',
+      time: 1649164547,
+      translated: true,
+    },
+    {
+      author_name: 'Claudete Pereira',
+      author_url:
+        'https://www.google.com/maps/contrib/104730994336423183377/reviews',
+      language: 'en-US',
+      original_language: 'pt',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: '2 years ago',
+      text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
+      time: 1649165128,
+      translated: true,
+    },
+    {
+      author_name: 'Claudete Pereira',
+      author_url:
+        'https://www.google.com/maps/contrib/104730994336423183377/reviews',
+      language: 'en-US',
+      original_language: 'pt',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: '2 years ago',
+      text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
+      time: 1649165128,
+      translated: true,
+    },
+    {
+      author_name: 'Claudete Pereira',
+      author_url:
+        'https://www.google.com/maps/contrib/104730994336423183377/reviews',
+      language: 'en-US',
+      original_language: 'pt',
+      profile_photo_url:
+        'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
+      rating: 5,
+      relative_time_description: '2 years ago',
+      text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
+      time: 1649165128,
+      translated: true,
+    },
+  ];
+  const [reviews, setReviews] = useState([]);
+  const [reviewsCurrentIndex, setReviewsCurrentIndex] = useState(0);
+
+  const containerWidth = 270;
+
   useEffect(() => {
-    // const fetchData = async () => {
-    //   const response = await axios.get('https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJORcS8RG12JQRtfsYmNRJTso&fields=reviews&key=AIzaSyBRYBXduiqMN8JJ0aJu_AH8uhS9zvg7pwg')
-    //   const data = await response.json()
-    //   console.log(data)
-    // }
-    // fetchData()
-  }, [])
+    const fetchData = async () => {
+      // const response = await axios.get('http://localhost:4000');
+      // // console.log(response.data.data);
+      // const reviewsArray = response.data.data;
+      const reviewsArray = dummy;
+      if (reviewsArray) {
+        setReviews(reviewsArray);
+      }
+
+    };
+    fetchData();
+  }, []);
 
 
-  function handleWhatsClick(){
+
+  function handleWhatsClick() {
     const phone = 554791131999;
 
-    const message = ''
+    const message = '';
 
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+      message
+    )}`;
 
     window.open(whatsappUrl);
   }
 
+  function handleLefClick() {
+    const newIndex = reviewsCurrentIndex - 1;
+    setReviewsCurrentIndex(newIndex < 0 ? reviews.length - 3 : newIndex);
+  }
+
+  function handleRigtClick() {
+    const newIndex = reviewsCurrentIndex + 1;
+    setReviewsCurrentIndex(newIndex >= reviews.length - 2 ? 0 : newIndex);
+  }
   
+  // reviews.map(review => console.log(review.profile_photo_url))
 
   return (
     <>
-      <div className='whats' onClick={handleWhatsClick}><i className="bi bi-whatsapp"></i></div>
+      <div className="whats" onClick={handleWhatsClick}>
+        <i className="bi bi-whatsapp"></i>
+      </div>
 
-      <button className='floatingBtn' onClick={handleWhatsClick}>Entre em contato</button>
-   
+      <button className="floatingBtn" onClick={handleWhatsClick}>
+        Entre em contato
+      </button>
+
       <div className="container-my">
         <header className="header">
-          <img src='/logo.jpg' className='logo'/>
+          <img src="/logo.jpg" className="logo" />
           {/* <ul>
             <li>Colchões</li>
             <li>Travesseiros</li>
@@ -53,9 +187,7 @@ function App() {
               <div className="large-padding-section">
                 <div className="left-content-text">
                   <h1>Os melhores Colchões!</h1>
-                  <p className="text-xl">
-                  Descubra como dormir melhor hoje!
-                  </p>
+                  <p className="text-xl">Descubra como dormir melhor hoje!</p>
                 </div>
                 <div className="text-discount">
                   ATÉ 48% <span>OFF</span>
@@ -73,19 +205,21 @@ function App() {
                   <div className="product-description-container-right">
                     <div className="product-title">Title</div>
                     <div className="product-description">
-                     O colchão mais ergonômico e suave, combinação de espumas
+                      O colchão mais ergonômico e suave, combinação de espumas
                       para um descanso reparador. O colchão mais ergonômico e
                       suave, combinação de espumas para um descanso reparador. O
                       colchão mais ergonômico e suave, combinação de espumas
                       para um descanso reparador.
-                      
                     </div>
                     <div className="btn-info">
                       <button className="ver-oferta">VER OFERTA</button>
                     </div>
                   </div>
                   <div className="product-img">
-                    <img className="grid-product-img" src="https://live.staticflickr.com/65535/53626614704_a06f47cfdc_b.jpg" />
+                    <img
+                      className="grid-product-img"
+                      src="https://live.staticflickr.com/65535/53626614704_a06f47cfdc_b.jpg"
+                    />
                   </div>
                 </div>
               </div>
@@ -108,7 +242,11 @@ function App() {
                     <div className="product-description-container-left">
                       <div className="product-title">Title</div>
                       <div className="product-description">
-                      O colchão mais ergonômico e suave, combinação de espumas para um descanso reparador. O colchão mais ergonômico e suave, combinação de espumas para um descanso reparador. O colchão mais ergonômico e suave, combinação de espumas para um descanso reparador.
+                        O colchão mais ergonômico e suave, combinação de espumas
+                        para um descanso reparador. O colchão mais ergonômico e
+                        suave, combinação de espumas para um descanso reparador.
+                        O colchão mais ergonômico e suave, combinação de espumas
+                        para um descanso reparador.
                       </div>
                       <div className="btn-info">
                         <button className="ver-oferta">VER OFERTA</button>
@@ -246,65 +384,88 @@ function App() {
             O que faz os colchões x serem únicos?
           </div>
           <div className="hero2-container">
-            <img src="https://live.staticflickr.com/65535/53626632129_dda35aa002_w.jpg" 
-              className='hero2-container-img'
+            <img
+              src="https://live.staticflickr.com/65535/53626632129_dda35aa002_w.jpg"
+              className="hero2-container-img"
             />
           </div>
         </section>
 
         <section className="insta">
-          <div className="insta-title">
-            Confere nosso instagram!
-          </div>
+          <div className="insta-title">Confere nosso instagram!</div>
           <div className="insta-card-container">
             <div className="insta-card">
-              <InstaCode url='https://www.instagram.com/p/C38A66Ju4__/?utm_source=ig_embed&amp;utm_campaign=loading'/>
+              <InstaCode url="https://www.instagram.com/p/C38A66Ju4__/?utm_source=ig_embed&amp;utm_campaign=loading" />
             </div>
 
-            <div className="insta-card">
-            xx
-            </div>
-            <div className="insta-card">
-            xx
-            </div>
+            <div className="insta-card">xx</div>
+            <div className="insta-card">xx</div>
           </div>
         </section>
 
         <section className="review">
-          <div className="review-container">
-            <div className="review-container-inner">
-              <div className="review-contentContainer">
-                <div className="review-photo-container">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-                    className="review-photo"
-                    width="150"
-                    height="150"
-                  />
-                </div>
-                <div className="review-name">Maria Smantha</div>
-                <div className="review-profession">Web Developer</div>
-                <div className="review-descriptionContainer">
-                  <div className=" text-container">
-                    <i className="fas fa-quote-left pe-2"></i>Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Quod eos id officiis
-                    hic tenetur quae quaerat ad velit ab hic tenetur.
+          <div className="carouselWrapper">
+            <div className="carouselContainer">
+              {reviews
+                .filter(
+                  (review) =>
+                    review.author_name &&
+                    review.profile_photo_url &&
+                    review.rating === 5 &&
+                    review.text
+                )
+                .map((review, index) => (
+                <div className='review-wrapper' key={index}>
+                  <div
+                    className="review-container transition"
+                    
+                    style={{
+                      transform: `translateX(-${
+                        ((reviewsCurrentIndex * containerWidth)) 
+                      }px)`,
+                    }}
+                   >
+                    <div className="review-container-inner ">
+                      <div className="review-contentContainer">
+                        <div className="review-photo-container">
+                          <img
+                            src={review.profile_photo_url}
+                            className="review-photo"
+                            width="150"
+                            height="150"
+                          />
+                        </div>
+                        <div className="review-name">{review.author_name}</div>
+                        <ul className="list-unstyled mb-0 review-reatingContainer">
+                          <div className="starContainer">
+                            {Array.from({ length: review.rating }).map(
+                              (_, starIndex) => (
+                                <li key={starIndex}>
+                                  <i className="bi bi-star-fill review-star"></i>
+                                </li>
+                              )
+                            )}
+                          </div>
+                        </ul>
+                        <div className="review-profession">Web Developer</div>
+                        <div className="review-descriptionContainer">
+                          <div className="review-text-container">
+                            <i className="fas fa-quote-left pe-2"></i>
+                            <p className="review-text">{review.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-                <ul className="list-unstyled mb-0 review-reatingContainer">
-                  <li>
-                    <i className="bi bi-star-fill review-star"></i>
-                    <i className="bi bi-star-fill review-star"></i>
-                    <i className="bi bi-star-fill review-star"></i>
-                    <i className="bi bi-star-fill review-star"></i>
-                    <i className="bi bi-star-fill review-star"></i>
-                  </li>
-                </ul>
-              </div>
+                  </div>
+                ))}
             </div>
-
-
+            <button className="carousel-btn next-btn">
+              <i className="bi bi-chevron-left" onClick={handleLefClick}></i>
+            </button>
+            <button className="carousel-btn prev-btn" onClick={handleRigtClick}>
+              <i className="bi bi-chevron-right "></i>
+            </button>
           </div>
         </section>
 
@@ -314,28 +475,28 @@ function App() {
               <div className="footer-content">
                 <div className="footer-title">Localização</div>
                 <div className="footer-content-inner">
-                  <div className='icon-container-inner'>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="footer-icon"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                    />
-                  </svg>
+                  <div className="icon-container-inner">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="footer-icon"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                      />
+                    </svg>
                   </div>
-                  <div className='address'>
+                  <div className="address">
                     Av. do Estado Dalmo Vieira, 570 Ariribá, Balneário
                     Camboriú-SC
                   </div>
@@ -345,23 +506,23 @@ function App() {
               <div className="footer-content">
                 <div className="footer-title">Contatos</div>
                 <div className="footer-content-inner">
-                <div className='icon-container-inner'>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="footer-icon"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-                    />
-                  </svg>
+                  <div className="icon-container-inner">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="footer-icon"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                      />
+                    </svg>
                   </div>
-                  <div className='phone'>47 55555-5555 </div>
+                  <div className="phone">47 55555-5555 </div>
                 </div>
               </div>
             </div>
