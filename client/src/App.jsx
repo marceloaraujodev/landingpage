@@ -188,18 +188,13 @@ function App() {
   function instaLefClick() {
     const newIndex = instaCurrentIndex - 1;
     setInstaCurrentIndex(newIndex < 0 ? 2 : newIndex);
-    if (smallScreen) {
-    }
+
   }
 
   function instaRigtClick() {
     const newIndex = instaCurrentIndex + 1;
     setInstaCurrentIndex(newIndex >= 3 ? 0 : newIndex);
-    // if (smallScreen) {
-    // }
   }
-
-  // reviews.map(review => console.log(review.profile_photo_url))
 
   return (
     <>
