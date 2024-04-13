@@ -142,7 +142,7 @@ function App() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [smallScreen]);
 
   useEffect(() => {
     setSmallScreen(window.innerWidth < 600);
@@ -626,7 +626,4 @@ function App() {
 }
 
 export default App;
-{
-  /* <div className='medium-card-container'>
-<div className='medium-card'></div> */
-}
+
