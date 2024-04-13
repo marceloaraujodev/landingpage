@@ -1,117 +1,117 @@
 // import axios from 'axios';
 import { useEffect, useState } from 'react';
-import InstaCode from './InstaCode';
+// import InstaCode from './InstaCode';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  const dummy = [
-    {
-      author_name: 'Tamaiane Bruck',
-      author_url:
-        'https://www.google.com/maps/contrib/113360326144067672734/reviews',
-      language: 'en-US',
-      original_language: 'pt',
-      profile_photo_url:
-        'https://lh3.googleusercontent.com/a-/ALV-UjWlPAZAyi-bor_IYg5ZCKeQX5OxdgigCfts0GyIILavkm0PwTQd=s128-c0x00000000-cc-rp-mo',
-      rating: 5,
-      relative_time_description: 'a week ago',
-      text:
-        'Impeccable service, seller answered all questions. Fast delivery, left product assembled 🙏🤩\n' +
-        'I recommend',
-      time: 1712074015,
-      translated: true,
-    },
-    {
-      author_name: 'Douglas Soares de Lima',
-      author_url:
-        'https://www.google.com/maps/contrib/112228458909562481397/reviews',
-      language: 'en-US',
-      original_language: 'pt',
-      profile_photo_url:
-        'https://lh3.googleusercontent.com/a/ACg8ocJKcv4jI_K7JUy5_pPKahfXiwQ2g17exDxnhwdsDMQz6kkHYg=s128-c0x00000000-cc-rp-mo',
-      rating: 5,
-      relative_time_description: 'a year ago',
-      text:
-        'Excellent and differentiated service, both in the Bal Camboriú store and in the Itajaí store.\n' +
-        'Sellers concerned with customer satisfaction.\n' +
-        'I am very satisfied with the purchase of the Castor Casal Premium Gel One Face Pocket Mattress 138x188x32cm.\n' +
-        'Firm and comfortable.',
-      time: 1651496684,
-      translated: true,
-    },
-    {
-      author_name: 'Jacqueline Pereira da Silva',
-      author_url:
-        'https://www.google.com/maps/contrib/102231266518942833613/reviews',
-      language: 'en-US',
-      original_language: 'pt',
-      profile_photo_url:
-        'https://lh3.googleusercontent.com/a/ACg8ocJFyGcaGHtmYnybYmhr0hbBZ6khA5hDHkmNMZHhy4458wxang=s128-c0x00000000-cc-rp-mo',
-      rating: 5,
-      relative_time_description: '2 years ago',
-      text: 'Excellent service at the Balneário Camboriú store, by saleswoman Elisa, who spared no effort to reach a common goal between selling and purchasing. I was very satisfied. 😉🌻',
-      time: 1648736663,
-      translated: true,
-    },
-    {
-      author_name: 'Neusa Valentina Presente',
-      author_url:
-        'https://www.google.com/maps/contrib/103265381531148744836/reviews',
-      language: 'en-US',
-      original_language: 'pt',
-      profile_photo_url:
-        'https://lh3.googleusercontent.com/a/ACg8ocJD907Dfh1M_SbVpFceQJqX6fKulc8oyAx3_Ajf-HLmUoub6w=s128-c0x00000000-cc-rp-mo',
-      rating: 5,
-      relative_time_description: '2 years ago',
-      text: 'Excellent, the girl who helped me explained everything about the mattress, attentive to what I was saying, always very friendly, great service really',
-      time: 1649164547,
-      translated: true,
-    },
-    {
-      author_name: 'Claudete Pereira',
-      author_url:
-        'https://www.google.com/maps/contrib/104730994336423183377/reviews',
-      language: 'en-US',
-      original_language: 'pt',
-      profile_photo_url:
-        'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
-      rating: 5,
-      relative_time_description: '2 years ago',
-      text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
-      time: 1649165128,
-      translated: true,
-    },
-    {
-      author_name: 'Claudete Pereira',
-      author_url:
-        'https://www.google.com/maps/contrib/104730994336423183377/reviews',
-      language: 'en-US',
-      original_language: 'pt',
-      profile_photo_url:
-        'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
-      rating: 5,
-      relative_time_description: '2 years ago',
-      text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
-      time: 1649165128,
-      translated: true,
-    },
-    {
-      author_name: 'Claudete Pereira',
-      author_url:
-        'https://www.google.com/maps/contrib/104730994336423183377/reviews',
-      language: 'en-US',
-      original_language: 'pt',
-      profile_photo_url:
-        'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
-      rating: 5,
-      relative_time_description: '2 years ago',
-      text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
-      time: 1649165128,
-      translated: true,
-    },
-  ];
+  // const dummy = [
+  //   {
+  //     author_name: 'Tamaiane Bruck',
+  //     author_url:
+  //       'https://www.google.com/maps/contrib/113360326144067672734/reviews',
+  //     language: 'en-US',
+  //     original_language: 'pt',
+  //     profile_photo_url:
+  //       'https://lh3.googleusercontent.com/a-/ALV-UjWlPAZAyi-bor_IYg5ZCKeQX5OxdgigCfts0GyIILavkm0PwTQd=s128-c0x00000000-cc-rp-mo',
+  //     rating: 5,
+  //     relative_time_description: 'a week ago',
+  //     text:
+  //       'Impeccable service, seller answered all questions. Fast delivery, left product assembled 🙏🤩\n' +
+  //       'I recommend',
+  //     time: 1712074015,
+  //     translated: true,
+  //   },
+  //   {
+  //     author_name: 'Douglas Soares de Lima',
+  //     author_url:
+  //       'https://www.google.com/maps/contrib/112228458909562481397/reviews',
+  //     language: 'en-US',
+  //     original_language: 'pt',
+  //     profile_photo_url:
+  //       'https://lh3.googleusercontent.com/a/ACg8ocJKcv4jI_K7JUy5_pPKahfXiwQ2g17exDxnhwdsDMQz6kkHYg=s128-c0x00000000-cc-rp-mo',
+  //     rating: 5,
+  //     relative_time_description: 'a year ago',
+  //     text:
+  //       'Excellent and differentiated service, both in the Bal Camboriú store and in the Itajaí store.\n' +
+  //       'Sellers concerned with customer satisfaction.\n' +
+  //       'I am very satisfied with the purchase of the Castor Casal Premium Gel One Face Pocket Mattress 138x188x32cm.\n' +
+  //       'Firm and comfortable.',
+  //     time: 1651496684,
+  //     translated: true,
+  //   },
+  //   {
+  //     author_name: 'Jacqueline Pereira da Silva',
+  //     author_url:
+  //       'https://www.google.com/maps/contrib/102231266518942833613/reviews',
+  //     language: 'en-US',
+  //     original_language: 'pt',
+  //     profile_photo_url:
+  //       'https://lh3.googleusercontent.com/a/ACg8ocJFyGcaGHtmYnybYmhr0hbBZ6khA5hDHkmNMZHhy4458wxang=s128-c0x00000000-cc-rp-mo',
+  //     rating: 5,
+  //     relative_time_description: '2 years ago',
+  //     text: 'Excellent service at the Balneário Camboriú store, by saleswoman Elisa, who spared no effort to reach a common goal between selling and purchasing. I was very satisfied. 😉🌻',
+  //     time: 1648736663,
+  //     translated: true,
+  //   },
+  //   {
+  //     author_name: 'Neusa Valentina Presente',
+  //     author_url:
+  //       'https://www.google.com/maps/contrib/103265381531148744836/reviews',
+  //     language: 'en-US',
+  //     original_language: 'pt',
+  //     profile_photo_url:
+  //       'https://lh3.googleusercontent.com/a/ACg8ocJD907Dfh1M_SbVpFceQJqX6fKulc8oyAx3_Ajf-HLmUoub6w=s128-c0x00000000-cc-rp-mo',
+  //     rating: 5,
+  //     relative_time_description: '2 years ago',
+  //     text: 'Excellent, the girl who helped me explained everything about the mattress, attentive to what I was saying, always very friendly, great service really',
+  //     time: 1649164547,
+  //     translated: true,
+  //   },
+  //   {
+  //     author_name: 'Claudete Pereira',
+  //     author_url:
+  //       'https://www.google.com/maps/contrib/104730994336423183377/reviews',
+  //     language: 'en-US',
+  //     original_language: 'pt',
+  //     profile_photo_url:
+  //       'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
+  //     rating: 5,
+  //     relative_time_description: '2 years ago',
+  //     text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
+  //     time: 1649165128,
+  //     translated: true,
+  //   },
+  //   {
+  //     author_name: 'Claudete Pereira',
+  //     author_url:
+  //       'https://www.google.com/maps/contrib/104730994336423183377/reviews',
+  //     language: 'en-US',
+  //     original_language: 'pt',
+  //     profile_photo_url:
+  //       'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
+  //     rating: 5,
+  //     relative_time_description: '2 years ago',
+  //     text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
+  //     time: 1649165128,
+  //     translated: true,
+  //   },
+  //   {
+  //     author_name: 'Claudete Pereira',
+  //     author_url:
+  //       'https://www.google.com/maps/contrib/104730994336423183377/reviews',
+  //     language: 'en-US',
+  //     original_language: 'pt',
+  //     profile_photo_url:
+  //       'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
+  //     rating: 5,
+  //     relative_time_description: '2 years ago',
+  //     text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
+  //     time: 1649165128,
+  //     translated: true,
+  //   },
+  // ];
 
   const [reviews, setReviews] = useState([]);
   const [reviewsCurrentIndex, setReviewsCurrentIndex] = useState(0);
@@ -125,10 +125,10 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const response = await axios.get('http://localhost:4000');
-      // console.log(response.data.data);
-      // const reviewsArray = response.data.data;
-      const reviewsArray = dummy;
+      const response = await axios.get('http://localhost:4000');
+      console.log(response.data.data);
+      const reviewsArray = response.data.data;
+      // const reviewsArray = dummy;
       if (reviewsArray) {
         setReviews(reviewsArray);
       }
