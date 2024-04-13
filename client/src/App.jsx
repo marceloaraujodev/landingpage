@@ -125,7 +125,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('http://localhost:4000');
+      const response = await axios.get("https://landingpage-server-2k7v.onrender.com");
       console.log(response.data.data);
       const reviewsArray = response.data.data;
       // const reviewsArray = dummy;

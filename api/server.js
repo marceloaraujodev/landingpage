@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:4000']
+  origin: ["https://landingpage-server-2k7v.onrender.com", 'http://localhost:5173', 'http://localhost:4000', ]
 }));
 
 app.use(morgan('dev'));

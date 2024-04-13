@@ -352,6 +352,7 @@ display: none;
   display: flex;
   justify-content: center;
   position: relative;
+
 }
 .carouselWrapper {
   display: flex;
@@ -359,6 +360,7 @@ display: none;
   position: relative;
   width: 810px;
   /* border: solid 1px black; */
+  min-height: 550px;
 }
 .carouselContainer {
   display: flex;
