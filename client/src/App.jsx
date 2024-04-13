@@ -1,7 +1,7 @@
 // import axios from 'axios';
 import { useEffect, useState } from 'react';
 import InstaCode from './InstaCode';
-// import axios from 'axios';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -112,26 +112,46 @@ function App() {
       translated: true,
     },
   ];
+
   const [reviews, setReviews] = useState([]);
   const [reviewsCurrentIndex, setReviewsCurrentIndex] = useState(0);
+
+  // const [instaPhoto, setInstaPhoto] = useState();
+  const [instaCurrentIndex, setInstaCurrentIndex] = useState(0);
+
+  const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
 
   const containerWidth = 270;
 
   useEffect(() => {
     const fetchData = async () => {
       // const response = await axios.get('http://localhost:4000');
-      // // console.log(response.data.data);
+      // console.log(response.data.data);
       // const reviewsArray = response.data.data;
       const reviewsArray = dummy;
       if (reviewsArray) {
         setReviews(reviewsArray);
       }
-
+      console.log(smallScreen);
     };
     fetchData();
+    // Add event listener to handle window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
+  useEffect(() => {
+    setSmallScreen(window.innerWidth < 600);
+  }, []);
 
+  // Event handler for window resize
+  const handleResize = () => {
+    setSmallScreen(window.innerWidth < 600);
+  };
 
   function handleWhatsClick() {
     const phone = 554791131999;
@@ -146,15 +166,39 @@ function App() {
   }
 
   function handleLefClick() {
-    const newIndex = reviewsCurrentIndex - 1;
-    setReviewsCurrentIndex(newIndex < 0 ? reviews.length - 3 : newIndex);
+    if (smallScreen) {
+      const newIndex = reviewsCurrentIndex - 1;
+      setReviewsCurrentIndex(newIndex < 0 ? reviews.length - 1 : newIndex);
+    } else {
+      const newIndex = reviewsCurrentIndex - 1;
+      setReviewsCurrentIndex(newIndex < 0 ? reviews.length - 3 : newIndex);
+    }
   }
 
   function handleRigtClick() {
-    const newIndex = reviewsCurrentIndex + 1;
-    setReviewsCurrentIndex(newIndex >= reviews.length - 2 ? 0 : newIndex);
+    if (smallScreen) {
+      const newIndex = reviewsCurrentIndex + 1;
+      setReviewsCurrentIndex(newIndex >= reviews.length ? 0 : newIndex);
+    } else {
+      const newIndex = reviewsCurrentIndex + 1;
+      setReviewsCurrentIndex(newIndex >= reviews.length - 2 ? 0 : newIndex);
+    }
   }
-  
+
+  function instaLefClick() {
+    const newIndex = instaCurrentIndex - 1;
+    setInstaCurrentIndex(newIndex < 0 ? 2 : newIndex);
+    if (smallScreen) {
+    }
+  }
+
+  function instaRigtClick() {
+    const newIndex = instaCurrentIndex + 1;
+    setInstaCurrentIndex(newIndex >= 3 ? 0 : newIndex);
+    // if (smallScreen) {
+    // }
+  }
+
   // reviews.map(review => console.log(review.profile_photo_url))
 
   return (
@@ -189,6 +233,9 @@ function App() {
                   <h1>Os melhores Colchões!</h1>
                   <p className="text-xl">Descubra como dormir melhor hoje!</p>
                 </div>
+                <div className="hero-btn-container">
+                  <button className="hero-btn">Fale com um atendente</button>
+                </div>
                 <div className="text-discount">
                   ATÉ 48% <span>OFF</span>
                 </div>
@@ -216,10 +263,7 @@ function App() {
                     </div>
                   </div>
                   <div className="product-img">
-                    <img
-                      className="grid-product-img"
-                      src="https://live.staticflickr.com/65535/53626614704_a06f47cfdc_b.jpg"
-                    />
+                    <img className="grid-product-img" src="/store-2.jpg" />
                   </div>
                 </div>
               </div>
@@ -234,10 +278,7 @@ function App() {
                 <div className="grid-item">
                   <div className="product-info-container">
                     <div className="product-img">
-                      <img
-                        className="grid-product-img"
-                        src="https://live.staticflickr.com/65535/53626614704_a06f47cfdc_b.jpg"
-                      />
+                      <img className="grid-product-img" src="/store-1.jpg" />
                     </div>
                     <div className="product-description-container-left">
                       <div className="product-title">Title</div>
@@ -259,7 +300,7 @@ function App() {
           </div>
         </section>
 
-        <section className="tamanhos">
+        {/* <section className="tamanhos">
           <div className="tamanhos-text">
             <h1>Diversos tamanhos disponíveis para o seu conforto</h1>
             <p>Medidas em centímetros</p>
@@ -289,7 +330,7 @@ function App() {
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="medium">
           <div className="medium-title">
@@ -379,7 +420,7 @@ function App() {
           </div>
         </section>
 
-        <section className="hero2">
+        {/* <section className="hero2">
           <div className="hero2-title">
             O que faz os colchões x serem únicos?
           </div>
@@ -389,17 +430,66 @@ function App() {
               className="hero2-container-img"
             />
           </div>
-        </section>
+        </section> */}
 
         <section className="insta">
           <div className="insta-title">Confere nosso instagram!</div>
+          {/* <div className="insta-option">
+                    <div className="insta-card">
+                      <InstaCode url="https://www.instagram.com/p/C38A66Ju4__/?utm_source=ig_embed&amp;utm_campaign=loading" />
+                    </div>
+                    <div className="insta-card">
+                      <InstaCode url="https://www.instagram.com/p/CyOOhwTuJff/?utm_source=ig_embed&amp;utm_campaign=loading" />
+                    </div>
+                    <div className="insta-card">
+                      <InstaCode url="https://www.instagram.com/p/Com0dehuRzJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
+                    </div>
+                  </div> */}
           <div className="insta-card-container">
-            <div className="insta-card">
-              <InstaCode url="https://www.instagram.com/p/C38A66Ju4__/?utm_source=ig_embed&amp;utm_campaign=loading" />
-            </div>
+            <div className="insta-carouselWrapper ">
+              <div className="insta-visibility">
+                <div
+                  className="insta-carouselContainer transition"
+                  style={{
+                    transform: `translateX(-${
+                      instaCurrentIndex * containerWidth
+                    }px)`
+                  }}
+                >
 
-            <div className="insta-card">xx</div>
-            <div className="insta-card">xx</div>
+                  <div className="insta-card-fixed-container">
+                    <img
+                      src="/insta1.jpg"
+                      alt="insta"
+                      className="insta-card-fixed"
+                    />
+                  </div>
+                  <div className="insta-card-fixed-container">
+                    <img
+                      src="/insta2.jpg"
+                      alt="insta"
+                      className="insta-card-fixed"
+                    />
+                  </div>
+                  <div className="insta-card-fixed-container">
+                    <img
+                      src="/insta3.jpg"
+                      alt="insta"
+                      className="insta-card-fixed"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button className="carousel-btn insta-next-btn">
+                <i className="bi bi-chevron-left" onClick={instaLefClick}></i>
+              </button>
+              <button
+                className="carousel-btn insta-prev-btn"
+                onClick={instaRigtClick}
+              >
+                <i className="bi bi-chevron-right "></i>
+              </button>
+            </div>
           </div>
         </section>
 
@@ -415,48 +505,49 @@ function App() {
                     review.text
                 )
                 .map((review, index) => (
-                <div className='review-wrapper' key={index}>
-                  <div
-                    className="review-container transition"
-                    
-                    style={{
-                      transform: `translateX(-${
-                        ((reviewsCurrentIndex * containerWidth)) 
-                      }px)`,
-                    }}
-                   >
-                    <div className="review-container-inner ">
-                      <div className="review-contentContainer">
-                        <div className="review-photo-container">
-                          <img
-                            src={review.profile_photo_url}
-                            className="review-photo"
-                            width="150"
-                            height="150"
-                          />
-                        </div>
-                        <div className="review-name">{review.author_name}</div>
-                        <ul className="list-unstyled mb-0 review-reatingContainer">
-                          <div className="starContainer">
-                            {Array.from({ length: review.rating }).map(
-                              (_, starIndex) => (
-                                <li key={starIndex}>
-                                  <i className="bi bi-star-fill review-star"></i>
-                                </li>
-                              )
-                            )}
+                  <div className="review-wrapper" key={index}>
+                    <div
+                      className="review-container transition"
+                      style={{
+                        transform: `translateX(-${
+                          reviewsCurrentIndex * containerWidth
+                        }px)`,
+                      }}
+                    >
+                      <div className="review-container-inner ">
+                        <div className="review-contentContainer">
+                          <div className="review-photo-container">
+                            <img
+                              src={review.profile_photo_url}
+                              className="review-photo"
+                              width="150"
+                              height="150"
+                            />
                           </div>
-                        </ul>
-                        <div className="review-profession">Web Developer</div>
-                        <div className="review-descriptionContainer">
-                          <div className="review-text-container">
-                            <i className="fas fa-quote-left pe-2"></i>
-                            <p className="review-text">{review.text}</p>
+                          <div className="review-name">
+                            {review.author_name}
+                          </div>
+                          <ul className="list-unstyled mb-0 review-reatingContainer">
+                            <div className="starContainer">
+                              {Array.from({ length: review.rating }).map(
+                                (_, starIndex) => (
+                                  <li key={starIndex}>
+                                    <i className="bi bi-star-fill review-star"></i>
+                                  </li>
+                                )
+                              )}
+                            </div>
+                          </ul>
+                          <div className="review-profession">Web Developer</div>
+                          <div className="review-descriptionContainer">
+                            <div className="review-text-container">
+                              <i className="fas fa-quote-left pe-2"></i>
+                              <p className="review-text">{review.text}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   </div>
                 ))}
             </div>
@@ -529,7 +620,7 @@ function App() {
 
             <div className="block-right">
               <div className="footer-content-logo">
-                <h1>Logo</h1>
+                <img src="/logo.jpg" className="logo-footer" />
               </div>
             </div>
           </div>

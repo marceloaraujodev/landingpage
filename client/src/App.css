@@ -1,6 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css');
 
-.floatingBtn{
+.floatingBtn {
   position: fixed;
   color: white;
   background-color: rgb(156, 0, 0);
@@ -29,7 +29,7 @@
   background-color: #000000;
   padding: 10px 30px;
 }
-.logo{
+.logo {
   height: 70px;
   margin: 0 auto;
 }
@@ -86,6 +86,17 @@ section {
   font-weight: 500;
   line-height: 1.8rem;
   margin-top: 15px;
+}
+.hero-btn {
+  color: white;
+  background-color: rgb(156, 0, 0);
+  border: none;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.301);
 }
 .text-discount {
   color: #f00000;
@@ -224,7 +235,7 @@ section {
   font-size: 0.8rem;
 }
 .medium {
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,7 +280,7 @@ section {
 }
 /* -----Insta section */
 .insta {
-  background-color: #ffffff;
+  background-color: #f1f1f1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -283,45 +294,73 @@ section {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 1px;
-
 }
 .insta-card-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* height: 25rem; */
-  padding: 40px 80px;
-  gap: 30px;
+  width: 100%;
+  height: 25rem;
+  padding: 40px 60px;
+  gap: 10px;
+  flex-wrap: wrap;
+  /* border: 1px solid green; */
+  height: 300px;
   flex: 1;
 }
 
+.insta-carouselWrapper{
+  display: flex;
+}
+.insta-carouselContainer{
+  display: flex;
+}
+
+.insta-next-btn {
+display: none;
+}
+.insta-prev-btn {
+  display: none;
+}
+.insta-option{
+  display: flex;
+  justify-content: center;
+  margin: 10px 10px;
+  flex-wrap: wrap;
+
+}
 .insta-card {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* height: 300px; */
-  /* object-fit: cover; */
-  /* overflow: hidden; */
-  gap: 15px;
-  flex: 1;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+.insta-card-fixed {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.411);
+  border-radius: 5px;
+  margin: 0 10px;
 }
 
 /* -------reviews --- */
 .review {
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   display: flex;
   justify-content: center;
   position: relative;
 }
-.carouselWrapper{
+.carouselWrapper {
   display: flex;
   justify-content: space-around;
   position: relative;
   width: 810px;
   /* border: solid 1px black; */
 }
-.carouselContainer{
+.carouselContainer {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -334,7 +373,7 @@ section {
   transition: transform 0.6s ease-in-out;
 }
 
-.carousel-btn{
+.carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -343,17 +382,16 @@ section {
   border: 1px solid #ccc;
   cursor: pointer;
 }
-.next-btn{
+.next-btn {
   left: -40px;
 }
-.prev-btn{
+.prev-btn {
   right: -40px;
 }
-.review-wrapper{
+.review-wrapper {
   /* padding: 0 10px; */
   display: flex;
   justify-content: space-around;
-
 }
 .review-container {
   padding: 100px 10px;
@@ -371,11 +409,11 @@ section {
   width: 250px;
   height: 350px;
   gap: 12px;
-  background-color: rgb(225, 241, 252);
+  /* background-color: rgb(225, 241, 252); */
   border-radius: 8px;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.26);
 }
-.review-photo-container img{
+.review-photo-container img {
   height: 80px;
   width: 80px;
 }
@@ -395,16 +433,16 @@ section {
   justify-content: flex-start;
   flex-direction: row;
 }
-.review-descriptionContainer{
+.review-descriptionContainer {
   display: flex;
   justify-content: center;
   max-height: 150px;
   overflow-y: auto;
 }
-.review-text-container{
+.review-text-container {
   width: 90%;
 }
-.review-text{
+.review-text {
   font-size: 0.9rem;
 }
 /* Style the scrollbar track */
@@ -422,7 +460,7 @@ section {
 .review-descriptionContainer::-webkit-scrollbar-track {
   background-color: #f1f1f1; /* Set the color of the scrollbar track */
 }
-.starContainer{
+.starContainer {
   display: flex;
 }
 .review-star {
@@ -457,7 +495,7 @@ section {
   align-items: center;
   padding-top: 100px;
 }
-
+/* -------Footer------- */
 .footer {
   background-color: #000000;
   height: 250px;
@@ -504,6 +542,9 @@ section {
 }
 .footer-content-logo {
   font-size: 2rem;
+}
+.logo-footer {
+  height: 70px;
 }
 
 .whats {
@@ -704,7 +745,7 @@ section {
     display: none;
   }
   .small-menu {
-    display: block;
+    display: none;
   }
   .hero {
     min-height: 15rem;
@@ -727,7 +768,12 @@ section {
   .text-xl {
     display: none;
   }
-
+  .hero-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
   .text-discount {
     font-size: 2rem;
     margin-top: 5px;
@@ -796,15 +842,18 @@ section {
   .icon-cards-sizes p {
     display: none;
   }
+
   .medium {
     padding-top: 1rem;
+    padding: 0 0;
   }
   .medium-title {
     font-size: 1.3rem;
+    padding-top: 50px;
   }
   .medium-card-container {
     display: block;
-    padding: 40px 40px;
+    padding: 30px 0;
     height: 100%;
   }
   .medium-card {
@@ -833,12 +882,62 @@ section {
   .hero2-container-img {
     width: 100%;
   }
-  .carouselWrapper{
+
+  .insta{
+    padding: 50px 0;
+  }
+  .insta-title {
+    padding-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  .insta-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 10px;
+    flex-wrap: wrap;
+    height: 300px;
+    flex: 1;
+    position: relative;
+  }
+  .insta-carouselWrapper {
     display: flex;
     justify-content: space-around;
     position: relative;
     width: 270px;
-    /* border: solid 1px black; */
+  }
+  .insta-visibility{
+    overflow: hidden;
+  }
+  .insta-carouselContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    /* border: solid 1px green; */
+    height: 90%;
+  }
+
+  .insta-next-btn {
+    left: -40px;
+    display: block;
+  }
+  .insta-prev-btn {
+    right: -40px;
+    display: block;
+  }
+
+  .review {
+    padding: 30px 0;
+  }
+  .carouselWrapper {
+    width: 270px;
+  }
+  .carouselContainer {
+    height: 100%;
+  }
+  .review-container {
+    padding: 20px 10px;
   }
 
   .footer {
@@ -900,9 +999,15 @@ section {
     width: 30px;
     height: 30px;
   }
-  .footer-content-logo h1 {
-    margin-top: 0;
-    text-align: center;
+
+  .block-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+  }
+  .logo-footer {
+    height: 40px;
   }
   .whats {
     height: 35px;
