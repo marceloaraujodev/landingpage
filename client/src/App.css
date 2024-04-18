@@ -1056,18 +1056,18 @@
   .review-container {
     padding: 20px 10px;
   }
-
-  .footer-block-top {
-    gap: 0;
-  }
-
+  
   .footer-block-top {
     flex-direction: column;
     width: 100%;
+    gap: 0;
   }
   .footer-content {
     width: 100%;
     margin: 30px 0;
+  }
+  .footer-title{
+    padding: 10px 0;
   }
   .footer-content-inner {
     text-align: center;
@@ -1075,7 +1075,7 @@
   }
  
   .footer-icon{
-    height: 35px;
+    height: 30px;
     width: 100%;
   }
   .address {

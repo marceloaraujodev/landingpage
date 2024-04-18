@@ -507,10 +507,6 @@ function App() {
         </section>
         <Map />
 
-        {/* <section className='map'>
-
-        </section> */}
-
 
         <footer className="footer">
           <div className="footer-content-container">
@@ -564,7 +560,7 @@ function App() {
                       />
                     </svg>
                   </div>
-                  <div className="phone">47 55555-5555 </div>
+                  <div className="phone">47 991131999 </div>
                 </div>
               </div>
 
