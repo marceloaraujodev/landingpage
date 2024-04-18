@@ -185,7 +185,7 @@
   margin-top: 100px;
   height: 100px;
 }
-.payment-methods-inner-container{
+.payment-methods-inner-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,11 +196,11 @@
 .payment-methods-span {
   margin-left: 10px;
 }
-.check{
+.check {
   font-size: 30px;
   color: rgb(0, 0, 0);
 }
-.truck-icon{
+.truck-icon {
   height: 40px;
 }
 .product-description-container-left {
@@ -572,7 +572,7 @@
   width: 100%;
   gap: 50px;
 }
-.footer-block-bottom{
+.footer-block-bottom {
   margin: 0 auto;
   padding-top: 50px;
 }
@@ -597,7 +597,7 @@
   color: white;
 }
 
-.payment-icon{
+.payment-icon {
   height: 35px;
   margin-right: 8px;
 }
@@ -846,7 +846,7 @@
     margin-top: 10px;
     letter-spacing: 0;
   }
-  .click-icon{
+  .click-icon {
     height: 25px;
     margin-left: 5px;
   }
@@ -884,11 +884,11 @@
     height: 200px;
   }
   .products-section-right {
-    max-width: 1500px; 
+    max-width: 1500px;
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .products-section-left{
+  .products-section-left {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -902,7 +902,28 @@
   .payment-methods {
     margin: 35px 0;
     text-align: center;
+    gap: 0;
   }
+  .payment-methods-inner-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .check {
+    font-size: 20px;
+    line-height: 0;
+  }
+  .truck-icon {
+    height: 20px;
+  }
+  .payment-methods-span {
+    margin-top: 10px;
+    margin-left: 0;
+    height: 100%;
+    font-size: 0.83rem;
+  }
+
   .product-description-container-left {
     order: -1;
     width: 100%;
@@ -1036,25 +1057,28 @@
     padding: 20px 10px;
   }
 
-
   .footer-block-top {
     gap: 0;
   }
-  
-  .footer-block-top{
+
+  .footer-block-top {
     flex-direction: column;
     width: 100%;
   }
-  .footer-content{
+  .footer-content {
     width: 100%;
     margin: 30px 0;
   }
-  .footer-content-inner{
+  .footer-content-inner {
     text-align: center;
     gap: 15px;
-
   }
-  .address{
+ 
+  .footer-icon{
+    height: 35px;
+    width: 100%;
+  }
+  .address {
     width: 80%;
     margin-left: 5px;
   }

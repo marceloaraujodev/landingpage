@@ -1,7 +1,8 @@
 // import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Map from './components/Map';
 // import InstaCode from './InstaCode';
-import axios from 'axios';
+// import axios from 'axios';
 import reviewsData from '../reviews';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -18,14 +19,14 @@ function App() {
   const containerWidth = 270;
 
   useEffect(() => {
-    const fetchData = async () => {
-      // "https://landingpage-server-2k7v.onrender.com"
-      const response = await axios.get('http://localhost:4000');
-      console.log(response.data.data);
-      const data = response.data.data;
-      setReviews((prevReviews) => [...prevReviews, ...data]);
-    };
-    fetchData();
+    // const fetchData = async () => {
+    //   // "https://landingpage-server-2k7v.onrender.com"
+    //   const response = await axios.get('http://localhost:4000');
+    //   console.log(response.data.data);
+    //   const data = response.data.data;
+    //   setReviews((prevReviews) => [...prevReviews, ...data]);
+    // };
+    // fetchData();
     // Add event listener to handle window resize
     window.addEventListener('resize', handleResize);
 
@@ -45,6 +46,7 @@ function App() {
   };
 
   function handleWhatsClick() {
+    console.log('click')
     const phone = 554791131999;
 
     const message = '';
@@ -119,7 +121,7 @@ function App() {
                   <p className="text-xl">Descubra como dormir melhor hoje!</p>
                 </div>
                 <div className="hero-btn-container">
-                  <button className="hero-btn">
+                  <button className="hero-btn" onClick={handleWhatsClick}>
                     Fale com um atendente
                     <span className="click-icon">
                       <img className="click-icon" src="/click-icon-white.png" />
@@ -170,7 +172,7 @@ function App() {
                     Pague com 2 cartões
                   </span>
                 </div>
-                <div>
+                <div className='payment-methods-inner-container'>
                   <img src='/icon-truck.png' className='truck-icon' alt='frete' />
                   <span className="payment-methods-span">
                     Frete grátis para Brusque e Região
@@ -503,6 +505,12 @@ function App() {
             </button>
           </div>
         </section>
+        <Map />
+
+        {/* <section className='map'>
+
+        </section> */}
+
 
         <footer className="footer">
           <div className="footer-content-container">
@@ -532,8 +540,7 @@ function App() {
                     </svg>
                   </div>
                   <div className="address">
-                    Av. do Estado Dalmo Vieira, 570 Ariribá, Balneário
-                    Camboriú-SC
+                  n° 236 - Rua: Hercilio Luz, sala 001, Brusque - SC, 88350-300
                   </div>
                 </div>
               </div>
