@@ -173,7 +173,7 @@ function App() {
                 <div>
                   <img src='/icon-truck.png' className='truck-icon' alt='frete' />
                   <span className="payment-methods-span">
-                    Frete grátis para Brusque
+                    Frete grátis para Brusque e Região
                   </span>
                 </div>
 
