@@ -14,6 +14,7 @@ app.use(cors({
 
 app.use(morgan('dev'));
 
+
 app.get('/', async (req, res) => {
   try {
     const placeId = process.env.PLACE_ID
@@ -25,14 +26,11 @@ app.get('/', async (req, res) => {
 
     const response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&reviews_no_translations=true&tranlated=false&key=${apiKey}`);
 
-
-
-    console.log(response.data.result.reviews)
     const reviews = response.data.result.reviews;
 
     res.status(200).json({
       success: true,
-      data: reviews
+      data: reviews 
     })
 
   } catch (error) {

@@ -2,137 +2,28 @@
 import { useEffect, useState } from 'react';
 // import InstaCode from './InstaCode';
 import axios from 'axios';
+import reviewsData from '../reviews';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  // const dummy = [
-  //   {
-  //     author_name: 'Tamaiane Bruck',
-  //     author_url:
-  //       'https://www.google.com/maps/contrib/113360326144067672734/reviews',
-  //     language: 'en-US',
-  //     original_language: 'pt',
-  //     profile_photo_url:
-  //       'https://lh3.googleusercontent.com/a-/ALV-UjWlPAZAyi-bor_IYg5ZCKeQX5OxdgigCfts0GyIILavkm0PwTQd=s128-c0x00000000-cc-rp-mo',
-  //     rating: 5,
-  //     relative_time_description: 'a week ago',
-  //     text:
-  //       'Impeccable service, seller answered all questions. Fast delivery, left product assembled 🙏🤩\n' +
-  //       'I recommend',
-  //     time: 1712074015,
-  //     translated: true,
-  //   },
-  //   {
-  //     author_name: 'Douglas Soares de Lima',
-  //     author_url:
-  //       'https://www.google.com/maps/contrib/112228458909562481397/reviews',
-  //     language: 'en-US',
-  //     original_language: 'pt',
-  //     profile_photo_url:
-  //       'https://lh3.googleusercontent.com/a/ACg8ocJKcv4jI_K7JUy5_pPKahfXiwQ2g17exDxnhwdsDMQz6kkHYg=s128-c0x00000000-cc-rp-mo',
-  //     rating: 5,
-  //     relative_time_description: 'a year ago',
-  //     text:
-  //       'Excellent and differentiated service, both in the Bal Camboriú store and in the Itajaí store.\n' +
-  //       'Sellers concerned with customer satisfaction.\n' +
-  //       'I am very satisfied with the purchase of the Castor Casal Premium Gel One Face Pocket Mattress 138x188x32cm.\n' +
-  //       'Firm and comfortable.',
-  //     time: 1651496684,
-  //     translated: true,
-  //   },
-  //   {
-  //     author_name: 'Jacqueline Pereira da Silva',
-  //     author_url:
-  //       'https://www.google.com/maps/contrib/102231266518942833613/reviews',
-  //     language: 'en-US',
-  //     original_language: 'pt',
-  //     profile_photo_url:
-  //       'https://lh3.googleusercontent.com/a/ACg8ocJFyGcaGHtmYnybYmhr0hbBZ6khA5hDHkmNMZHhy4458wxang=s128-c0x00000000-cc-rp-mo',
-  //     rating: 5,
-  //     relative_time_description: '2 years ago',
-  //     text: 'Excellent service at the Balneário Camboriú store, by saleswoman Elisa, who spared no effort to reach a common goal between selling and purchasing. I was very satisfied. 😉🌻',
-  //     time: 1648736663,
-  //     translated: true,
-  //   },
-  //   {
-  //     author_name: 'Neusa Valentina Presente',
-  //     author_url:
-  //       'https://www.google.com/maps/contrib/103265381531148744836/reviews',
-  //     language: 'en-US',
-  //     original_language: 'pt',
-  //     profile_photo_url:
-  //       'https://lh3.googleusercontent.com/a/ACg8ocJD907Dfh1M_SbVpFceQJqX6fKulc8oyAx3_Ajf-HLmUoub6w=s128-c0x00000000-cc-rp-mo',
-  //     rating: 5,
-  //     relative_time_description: '2 years ago',
-  //     text: 'Excellent, the girl who helped me explained everything about the mattress, attentive to what I was saying, always very friendly, great service really',
-  //     time: 1649164547,
-  //     translated: true,
-  //   },
-  //   {
-  //     author_name: 'Claudete Pereira',
-  //     author_url:
-  //       'https://www.google.com/maps/contrib/104730994336423183377/reviews',
-  //     language: 'en-US',
-  //     original_language: 'pt',
-  //     profile_photo_url:
-  //       'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
-  //     rating: 5,
-  //     relative_time_description: '2 years ago',
-  //     text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
-  //     time: 1649165128,
-  //     translated: true,
-  //   },
-  //   {
-  //     author_name: 'Claudete Pereira',
-  //     author_url:
-  //       'https://www.google.com/maps/contrib/104730994336423183377/reviews',
-  //     language: 'en-US',
-  //     original_language: 'pt',
-  //     profile_photo_url:
-  //       'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
-  //     rating: 5,
-  //     relative_time_description: '2 years ago',
-  //     text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
-  //     time: 1649165128,
-  //     translated: true,
-  //   },
-  //   {
-  //     author_name: 'Claudete Pereira',
-  //     author_url:
-  //       'https://www.google.com/maps/contrib/104730994336423183377/reviews',
-  //     language: 'en-US',
-  //     original_language: 'pt',
-  //     profile_photo_url:
-  //       'https://lh3.googleusercontent.com/a/ACg8ocJKZ0cUg1yRE4cqkcUpz9Sc6WJUcSIUr0zn0GXMhbki_9pM=s128-c0x00000000-cc-rp-mo',
-  //     rating: 5,
-  //     relative_time_description: '2 years ago',
-  //     text: "Wonderful service! I highly recommend it, a differentiated service with explanations about the mattresses, not to mention the quality. I'm super satisfied. Congratulations!",
-  //     time: 1649165128,
-  //     translated: true,
-  //   },
-  // ];
-
-  const [reviews, setReviews] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [reviews, setReviews] = useState(reviewsData);
   const [reviewsCurrentIndex, setReviewsCurrentIndex] = useState(0);
 
   // const [instaPhoto, setInstaPhoto] = useState();
   const [instaCurrentIndex, setInstaCurrentIndex] = useState(0);
-
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
 
   const containerWidth = 270;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("https://landingpage-server-2k7v.onrender.com");
+      // "https://landingpage-server-2k7v.onrender.com"
+      const response = await axios.get('http://localhost:4000');
       console.log(response.data.data);
-      const reviewsArray = response.data.data;
-      // const reviewsArray = dummy;
-      if (reviewsArray) {
-        setReviews(reviewsArray);
-      }
-      console.log(smallScreen);
+      const data = response.data.data;
+      setReviews((prevReviews) => [...prevReviews, ...data]);
     };
     fetchData();
     // Add event listener to handle window resize
@@ -187,13 +78,12 @@ function App() {
 
   function instaLefClick() {
     const newIndex = instaCurrentIndex - 1;
-    setInstaCurrentIndex(newIndex < 0 ? 2 : newIndex);
-
+    setInstaCurrentIndex(newIndex < 0 ? 5 : newIndex);
   }
 
   function instaRigtClick() {
     const newIndex = instaCurrentIndex + 1;
-    setInstaCurrentIndex(newIndex >= 3 ? 0 : newIndex);
+    setInstaCurrentIndex(newIndex >= 6 ? 0 : newIndex);
   }
 
   return (
@@ -229,7 +119,12 @@ function App() {
                   <p className="text-xl">Descubra como dormir melhor hoje!</p>
                 </div>
                 <div className="hero-btn-container">
-                  <button className="hero-btn">Fale com um atendente</button>
+                  <button className="hero-btn">
+                    Fale com um atendente
+                    <span className="click-icon">
+                      <img className="click-icon" src="/click-icon-white.png" />
+                    </span>
+                  </button>
                 </div>
                 <div className="text-discount">
                   ATÉ 48% <span>OFF</span>
@@ -245,22 +140,43 @@ function App() {
               <div className="grid-item">
                 <div className="product-info-container">
                   <div className="product-description-container-right">
-                    <div className="product-title">Title</div>
-                    <div className="product-description">
-                      O colchão mais ergonômico e suave, combinação de espumas
-                      para um descanso reparador. O colchão mais ergonômico e
-                      suave, combinação de espumas para um descanso reparador. O
-                      colchão mais ergonômico e suave, combinação de espumas
-                      para um descanso reparador.
+                    <div className="product-title">
+                      Excelência Em Tecnologia e Qualidade
                     </div>
-                    <div className="btn-info">
+                    <div className="product-description-right">
+                      Trabalhamos com marcas que investem constantemente em
+                      estudos e inovações internacionais que são tendências em
+                      conforto, saúde, bem-estar e durabilidade.
+                    </div>
+                    {/* <div className="btn-info">
                       <button className="ver-oferta">VER OFERTA</button>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="product-img">
                     <img className="grid-product-img" src="/store-2.jpg" />
                   </div>
                 </div>
+              </div>
+              <div className="payment-methods">
+                <div className='payment-methods-inner-container'>
+                  <i className="bi bi-check2-circle check"></i>
+                  <span className="payment-methods-span">
+                    12 vezes sem juros no cartão
+                  </span>
+                </div>
+                <div className='payment-methods-inner-container'>
+                  <i className="bi bi-check2-circle check"></i>
+                  <span className="payment-methods-span">
+                    Pague com 2 cartões
+                  </span>
+                </div>
+                <div>
+                  <img src='/icon-truck.png' className='truck-icon' alt='frete' />
+                  <span className="payment-methods-span">
+                    Frete grátis para Brusque
+                  </span>
+                </div>
+
               </div>
             </div>
           </div>
@@ -277,16 +193,16 @@ function App() {
                     </div>
                     <div className="product-description-container-left">
                       <div className="product-title">Title</div>
-                      <div className="product-description">
+                      <div className="product-description-left">
                         O colchão mais ergonômico e suave, combinação de espumas
                         para um descanso reparador. O colchão mais ergonômico e
                         suave, combinação de espumas para um descanso reparador.
                         O colchão mais ergonômico e suave, combinação de espumas
                         para um descanso reparador.
                       </div>
-                      <div className="btn-info">
+                      {/* <div className="btn-info">
                         <button className="ver-oferta">VER OFERTA</button>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -327,7 +243,7 @@ function App() {
           </div>
         </section> */}
 
-        <section className="medium">
+        {/* <section className="medium">
           <div className="medium-title">
             O que faz os colchões x serem únicos?
           </div>
@@ -413,7 +329,7 @@ function App() {
               <button className="btn-medium">Saiba mais</button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <section className="hero2">
           <div className="hero2-title">
@@ -428,7 +344,8 @@ function App() {
         </section> */}
 
         <section className="insta">
-          <div className="insta-title">Confere nosso instagram!</div>
+          <div className="insta-title"> Confere nosso instagram!</div>
+          <i className="bi bi-instagram social-media-icon"></i>
           {/* <div className="insta-option">
                     <div className="insta-card">
                       <InstaCode url="https://www.instagram.com/p/C38A66Ju4__/?utm_source=ig_embed&amp;utm_campaign=loading" />
@@ -440,38 +357,72 @@ function App() {
                       <InstaCode url="https://www.instagram.com/p/Com0dehuRzJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" />
                     </div>
                   </div> */}
-          <div className="insta-card-container">
-            <div className="insta-carouselWrapper ">
-              <div className="insta-visibility">
-                <div
-                  className="insta-carouselContainer transition"
-                  style={{
-                    transform: `translateX(-${
-                      instaCurrentIndex * containerWidth
-                    }px)`
-                  }}
-                >
-
-                  <div className="insta-card-fixed-container">
-                    <img
-                      src="/insta1.jpg"
-                      alt="insta"
-                      className="insta-card-fixed"
-                    />
-                  </div>
-                  <div className="insta-card-fixed-container">
-                    <img
-                      src="/insta2.jpg"
-                      alt="insta"
-                      className="insta-card-fixed"
-                    />
-                  </div>
-                  <div className="insta-card-fixed-container">
-                    <img
-                      src="/insta3.jpg"
-                      alt="insta"
-                      className="insta-card-fixed"
-                    />
+          <div className="insta-relative">
+            <div className="insta-card-container">
+              <div className="insta-carouselWrapper ">
+                <div className="insta-visibility">
+                  <div
+                    className="insta-carouselContainer transition"
+                    style={{
+                      transform: `translateX(-${
+                        instaCurrentIndex * containerWidth
+                      }px)`,
+                    }}
+                  >
+                    <a href="https://www.instagram.com/castorconceptcolchoes/">
+                      <div className="insta-card-fixed-container">
+                        <img
+                          src="/insta1.jpg"
+                          alt="insta"
+                          className="insta-card-fixed"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://www.instagram.com/castorconceptcolchoes/">
+                      <div className="insta-card-fixed-container">
+                        <img
+                          src="/insta2.jpg"
+                          alt="insta"
+                          className="insta-card-fixed"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://www.instagram.com/castorconceptcolchoes/">
+                      <div className="insta-card-fixed-container">
+                        <img
+                          src="/insta3.jpg"
+                          alt="insta"
+                          className="insta-card-fixed"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://www.instagram.com/castorconceptcolchoes/">
+                      <div className="insta-card-fixed-container">
+                        <img
+                          src="/insta4.jpg"
+                          alt="insta"
+                          className="insta-card-fixed"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://www.instagram.com/castorconceptcolchoes/">
+                      <div className="insta-card-fixed-container">
+                        <img
+                          src="/insta5.jpg"
+                          alt="insta"
+                          className="insta-card-fixed"
+                        />
+                      </div>
+                    </a>
+                    <a href="https://www.instagram.com/castorconceptcolchoes/">
+                      <div className="insta-card-fixed-container">
+                        <img
+                          src="/insta6.jpg"
+                          alt="insta"
+                          className="insta-card-fixed"
+                        />
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -489,15 +440,13 @@ function App() {
         </section>
 
         <section className="review">
+          <h1 className="review-title">Somos 5 estrelas no google!</h1>
           <div className="carouselWrapper">
             <div className="carouselContainer">
               {reviews
                 .filter(
                   (review) =>
-                    review.author_name &&
-                    review.profile_photo_url &&
-                    review.rating === 5 &&
-                    review.text
+                    review.author_name && review.rating === 5 && review.text
                 )
                 .map((review, index) => (
                   <div className="review-wrapper" key={index}>
@@ -512,12 +461,12 @@ function App() {
                       <div className="review-container-inner ">
                         <div className="review-contentContainer">
                           <div className="review-photo-container">
-                            <img
+                            {/* <img
                               src={review.profile_photo_url}
                               className="review-photo"
                               width="150"
                               height="150"
-                            />
+                            /> */}
                           </div>
                           <div className="review-name">
                             {review.author_name}
@@ -557,7 +506,7 @@ function App() {
 
         <footer className="footer">
           <div className="footer-content-container">
-            <div className="block-left">
+            <div className="footer-block-top">
               <div className="footer-content">
                 <div className="footer-title">Localização</div>
                 <div className="footer-content-inner">
@@ -611,13 +560,42 @@ function App() {
                   <div className="phone">47 55555-5555 </div>
                 </div>
               </div>
+
+              <div className="footer-content">
+                <div className="footer-title">Formas de Pagemntos</div>
+                <div className="footer-content-inner">
+                  <div className="icon-container-inner">
+                    <img
+                      src="/icon-mastercard.png"
+                      alt="master icon"
+                      className="payment-icon"
+                    />
+                    <img
+                      src="/icon-visa.png"
+                      alt="master icon"
+                      className="payment-icon"
+                    />
+                    <img
+                      src="/icon-pix-white.png"
+                      alt="master icon"
+                      className="payment-icon"
+                    />
+                    <img
+                      src="/icon-boleto.png"
+                      alt="master icon"
+                      className="payment-icon"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="block-right">
+            <div className="footer-block-bottom">
               <div className="footer-content-logo">
                 <img src="/logo.jpg" className="logo-footer" />
               </div>
             </div>
+
           </div>
         </footer>
       </div>
@@ -626,4 +604,3 @@ function App() {
 }
 
 export default App;
-
