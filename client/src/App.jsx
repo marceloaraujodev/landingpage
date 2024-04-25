@@ -340,11 +340,6 @@ function App() {
                       alt="master icon"
                       className="payment-icon"
                     />
-                    <img
-                      src="/icon-boleto.png"
-                      alt="master icon"
-                      className="payment-icon"
-                    />
                   </div>
                 </div>
               </div>

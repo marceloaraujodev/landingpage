@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
+import './Review.css';
 
 const reviewsData = [
   {
@@ -147,8 +148,8 @@ export default function Reviews() {
 
   // const containerWidth = 270;
   const carouselWidth = display * containerWidth
-
-  reviewsCurrentIndex * containerWidth;
+  console.log(carouselWidth)
+  // reviewsCurrentIndex * containerWidth;
 
   function handleLefClick() {
     if (smallScreen) {
@@ -175,14 +176,14 @@ export default function Reviews() {
     <section className="review">
     <h1 className="review-title">Somos 5 estrelas no google!</h1>
     <div className="carouselWrapper" style={{ width: carouselWidth }}>
-      <div className="carouselContainer">
+      <div className="carouselContainer" >
         {reviews
           .filter(
             (review) =>
               review.author_name && review.rating === 5 && review.text
           )
           .map((review, index) => (
-            <div className="review-wrapper" key={index}>
+            <div className="review-wrapper" key={index} >
               <div
                 className="review-container transition"
                 style={{
@@ -192,9 +193,7 @@ export default function Reviews() {
                 }}
               >
                 <div className="review-container-inner ">
-                  <div className="review-contentContainer">
-                    <div className="review-photo-container">
-                    </div>
+                  <div className="review-contentContainer" >
                     <div className="review-name">
                       {review.author_name}
                     </div>
