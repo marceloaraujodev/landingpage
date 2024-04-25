@@ -68,7 +68,7 @@ export default function OurProducts({onClick}) {
     productElements.push(
       <div className="product-gallery-wrapper" key={i}>
         <div
-          className="product-gallery-container transition"
+          className="product-gallery-container2 transition"
           style={{
             transform: `translateX(-${
               photoCurrentIndex * productContainerWidth

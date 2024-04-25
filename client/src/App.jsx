@@ -1,52 +1,20 @@
 // import axios from 'axios';
+// import InstaCode from './InstaCode';
+// import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Map from './components/Map';
 import OurProducts from './components/OurProducts';
-// import InstaCode from './InstaCode';
-// import axios from 'axios';
-import reviewsData from '../reviews';
+// import reviewsData from '../reviews';
+import Reviews from './components/Reviews';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
 function App() {
   // eslint-disable-next-line no-unused-vars
-  const [reviews, setReviews] = useState(reviewsData);
-  const [reviewsCurrentIndex, setReviewsCurrentIndex] = useState(0);
-
-  // const [instaPhoto, setInstaPhoto] = useState();
   const [instaCurrentIndex, setInstaCurrentIndex] = useState(0);
-  const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
-
   const containerWidth = 270;
 
-  reviewsCurrentIndex * containerWidth;
-
-  useEffect(() => {
-    // const fetchData = async () => {
-    //   // "https://landingpage-server-2k7v.onrender.com"
-    //   const response = await axios.get('http://localhost:4000');
-    //   console.log(response.data.data);
-    //   const data = response.data.data;
-    //   setReviews((prevReviews) => [...prevReviews, ...data]);
-    // };
-    // fetchData();
-    // Add event listener to handle window resize
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup function to remove event listener
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [smallScreen]);
-
-  useEffect(() => {
-    setSmallScreen(window.innerWidth < 600);
-  }, []);
-
-  // Event handler for window resize
-  const handleResize = () => {
-    setSmallScreen(window.innerWidth < 600);
-  };
 
   function handleWhatsClick() {
     console.log('click');
@@ -61,25 +29,6 @@ function App() {
     window.open(whatsappUrl);
   }
 
-  function handleLefClick() {
-    if (smallScreen) {
-      const newIndex = reviewsCurrentIndex - 1;
-      setReviewsCurrentIndex(newIndex < 0 ? reviews.length - 1 : newIndex);
-    } else {
-      const newIndex = reviewsCurrentIndex - 1;
-      setReviewsCurrentIndex(newIndex < 0 ? reviews.length - 3 : newIndex);
-    }
-  }
-
-  function handleRigtClick() {
-    if (smallScreen) {
-      const newIndex = reviewsCurrentIndex + 1;
-      setReviewsCurrentIndex(newIndex >= reviews.length ? 0 : newIndex);
-    } else {
-      const newIndex = reviewsCurrentIndex + 1;
-      setReviewsCurrentIndex(newIndex >= reviews.length - 2 ? 0 : newIndex);
-    }
-  }
 
   function instaLefClick() {
     const newIndex = instaCurrentIndex - 1;
@@ -138,10 +87,6 @@ function App() {
             </div>
           </div>
         </section>
-
-
-
-        
 
         <section className="products-section-right">
           <div className="products">
@@ -318,71 +263,7 @@ function App() {
           </div>
         </section>
 
-        <section className="review">
-          <h1 className="review-title">Somos 5 estrelas no google!</h1>
-          <div className="carouselWrapper">
-            <div className="carouselContainer">
-              {reviews
-                .filter(
-                  (review) =>
-                    review.author_name && review.rating === 5 && review.text
-                )
-                .map((review, index) => (
-                  <div className="review-wrapper" key={index}>
-                    <div
-                      className="review-container transition"
-                      style={{
-                        transform: `translateX(-${
-                          reviewsCurrentIndex * containerWidth
-                        }px)`,
-                      }}
-                    >
-                      <div className="review-container-inner ">
-                        <div className="review-contentContainer">
-                          <div className="review-photo-container">
-                            {/* <img
-                              src={review.profile_photo_url}
-                              className="review-photo"
-                              width="150"
-                              height="150"
-                            /> */}
-                          </div>
-                          <div className="review-name">
-                            {review.author_name}
-                          </div>
-                          <ul className="list-unstyled mb-0 review-reatingContainer">
-                            <div className="starContainer">
-                              {Array.from({ length: review.rating }).map(
-                                (_, starIndex) => (
-                                  <li key={starIndex}>
-                                    <i className="bi bi-star-fill review-star"></i>
-                                  </li>
-                                )
-                              )}
-                            </div>
-                          </ul>
-                          <div className="review-profession">Web Developer</div>
-                          <div className="review-descriptionContainer">
-                            <div className="review-text-container">
-                              <i className="fas fa-quote-left pe-2"></i>
-                              <p className="review-text">{review.text}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
-            <button className="carousel-btn next-btn">
-              <i className="bi bi-chevron-left" onClick={handleLefClick}></i>
-            </button>
-            <button className="carousel-btn prev-btn" onClick={handleRigtClick}>
-              <i className="bi bi-chevron-right "></i>
-            </button>
-          </div>
-        </section>
-
+        <Reviews />
         <OurProducts onClick={handleWhatsClick}/>
         <Map />
 

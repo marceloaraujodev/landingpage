@@ -518,7 +518,7 @@ dialog {
   height: 300px;
   gap: 12px;
   border-radius: 8px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   background-color: white;
 }
 .review-photo-container img {
@@ -684,7 +684,7 @@ dialog {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 1px;
-  margin-bottom: 78px;
+  margin-bottom: 0px;
 
 }
 .product-gallery-wrapper {
@@ -699,12 +699,15 @@ dialog {
   justify-content: space-around;
   position: relative;
 }
-.product-gallery-container{
-  /* border: 1px solid rgb(204, 204, 204); */
+.product-gallery-container2{
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  /* box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05); */
-  /* border: 1px solid red; */
-  background-color: rgba(226, 226, 226, 0.308);
+  
+}
+.product-gallery-container{
+
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
 }
 .product-gallery-container:hover{
   /* border: 1px solid rgb(148, 148, 148); */
