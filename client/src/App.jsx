@@ -180,7 +180,7 @@ function App() {
                 </div>
                 <div className="payment-methods-inner-container">
                   <img
-                    src="/icon-truck-blue.png"
+                    src="/icon-truck.png"
                     className="truck-icon"
                     alt="frete"
                   />

@@ -246,7 +246,6 @@ dialog {
 }
 .check {
   font-size: 30px;
-  color: #061e80
 }
 .truck-icon {
   height: 40px;
@@ -513,12 +512,14 @@ dialog {
   padding: 10px 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 250px;
   height: 300px;
   gap: 12px;
   border-radius: 8px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.26);
+  background-color: white;
 }
 .review-photo-container img {
   height: 80px;
