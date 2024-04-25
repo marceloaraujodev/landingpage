@@ -700,7 +700,7 @@ dialog {
   position: relative;
 }
 .product-gallery-container2{
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   
 }
@@ -1021,34 +1021,35 @@ dialog {
     padding: 20px 10px;
   }
 
+  .footer-content-container{
+    width: 100%;
+  }
   .footer-block-top {
     flex-direction: column;
     width: 100%;
-    gap: 0;
   }
   .footer-content {
     width: 100%;
-    margin: 30px 0;
-  }
-  .footer-title {
-    padding: 10px 0;
-  }
-  .footer-content-inner {
-    text-align: center;
-    gap: 15px;
+    padding: 0 10px;
   }
 
-  .footer-icon {
-    height: 30px;
-    width: 100%;
+  .footer-content-inner {
+    text-align: center;
+    gap: 5px;
+    
   }
   .address {
     width: 80%;
-    margin-left: 5px;
   }
   .logo-footer {
-    height: 40px;
+    /* height: 40px; */
+    padding-bottom: 10px;
   }
+  .footer-icon{
+    height: 30px;
+    width: 30px;
+  }
+
   .whats {
     height: 35px;
     position: fixed;
