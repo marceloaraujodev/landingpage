@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import './Review.css';
 
 const reviewsData = [
@@ -146,16 +146,26 @@ export default function Reviews() {
     setSmallScreen(window.innerWidth < 600);
   };
 
+  const handleRightClick = useCallback(() => {
+    if (smallScreen) {
+      const newIndex = reviewsCurrentIndex + 1;
+      setReviewsCurrentIndex(newIndex >= reviews.length ? 0 : newIndex);
+    } else {
+      const newIndex = reviewsCurrentIndex + 1;
+      setReviewsCurrentIndex(newIndex >= reviews.length - 2 ? 0 : newIndex);
+    }
+  }, [reviewsCurrentIndex, smallScreen, reviews.length]);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      handleRigtClick(); // Move to the next review
+      handleRightClick(); // Move to the next review
     }, 3000); // Change this value to adjust the interval (e.g., 5000 for every 5 seconds)
 
     return () => clearInterval(interval); // Cleanup function to clear the interval on component unmount
-  }, [reviewsCurrentIndex, handleRigtClick]);
+  }, [reviewsCurrentIndex, handleRightClick]);
 
   const carouselWidth = display * containerWidth
-  console.log(carouselWidth)
+
 
 
   function handleLefClick() {
@@ -168,15 +178,7 @@ export default function Reviews() {
     }
   }
 
-  function handleRigtClick() {
-    if (smallScreen) {
-      const newIndex = reviewsCurrentIndex + 1;
-      setReviewsCurrentIndex(newIndex >= reviews.length ? 0 : newIndex);
-    } else {
-      const newIndex = reviewsCurrentIndex + 1;
-      setReviewsCurrentIndex(newIndex >= reviews.length - 2 ? 0 : newIndex);
-    }
-  }
+ 
 
 
   return (
@@ -231,7 +233,7 @@ export default function Reviews() {
       <button className="carousel-btn next-btn">
         <i className="bi bi-chevron-left" onClick={handleLefClick}></i>
       </button>
-      <button className="carousel-btn prev-btn" onClick={handleRigtClick}>
+      <button className="carousel-btn prev-btn" onClick={handleRightClick}>
         <i className="bi bi-chevron-right "></i>
       </button>
     </div>
