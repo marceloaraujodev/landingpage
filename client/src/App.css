@@ -748,15 +748,18 @@ dialog {
   .check {
     font-size: 20px;
     line-height: 0;
+    font-weight: 600;
+    font-size: 2rem;
   }
   .truck-icon {
-    height: 20px;
+    height: 32px;
   }
   .payment-methods-span {
     margin-top: 10px;
     margin-left: 0;
     height: 100%;
     font-size: 0.83rem;
+    font-weight: 600;
   }
 
   .product-description-container-left {
