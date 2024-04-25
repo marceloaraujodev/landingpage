@@ -161,7 +161,7 @@ dialog {
   justify-content: center;
   max-width: 1500px;
   padding-bottom: 50px;
-  padding-left: 2.5rem;
+  /* padding-left: 2.5rem; */
   padding-right: 2.5rem;
   
 }
@@ -202,19 +202,21 @@ dialog {
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
-  width: 600px;
+  /* width: 600px; */
   margin: 0 auto;
   padding-bottom: 10px;
+
 }
 .product-img {
   display: flex;
   height: 450px;
 }
 .grid-product-img {
-  width: 600px;
-  /* height: 80%; */
+  width: 800px;
+  /* height: 100%; */
   border-radius: 10px;
   object-fit: cover;
+  margin-left: 50px;
 }
 .product-description {
   text-align: center;
@@ -254,11 +256,20 @@ dialog {
   margin: 0 auto;
   text-align: center;
 }
-
+.block-left-info{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
 .product-description-container-right {
-  width: 600px;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .product-description {
   font-size: 0.8;
@@ -678,6 +689,7 @@ dialog {
   display: flex;
   justify-content: space-around;
   padding: 10px 10px;
+
 }
 
 .product-gallery-carousel-wrapper {
@@ -685,23 +697,54 @@ dialog {
   justify-content: space-around;
   position: relative;
 }
+.product-gallery-container{
+  /* border: 1px solid rgb(204, 204, 204); */
+  border-radius: 8px;
+  /* box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05); */
+  /* border: 1px solid red; */
+  background-color: rgba(226, 226, 226, 0.308);
+}
+.product-gallery-container:hover{
+  /* border: 1px solid rgb(148, 148, 148); */
+  transform: scale(1.01);
+  transition: 0.8s ease-out;
+}
 
 /* controls the width of the carousel has code in the ourproduct.js */
 .product-gallery-carousel-container {
   display: flex;
   justify-content: space-around;
   overflow: hidden;
-  /* width: 1110px; */
+  text-align: center;
+  /* background-color: blue; */
 }
 
 .product-gallery-photo-carousel {
   width: 350px;
   height: 350px;
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  /* border-bottom: 1px solid rgb(204, 204, 204); */
   object-fit: cover;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
 }
-
+.buyNow{
+  border-radius: 6px;
+  border: 1px solid #c3182e;
+  background-color: #c3182e;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btnTextBuyNow{
+  margin-left: 5px;
+}
+.buyNow:hover{
+  background-color: white;
+  outline: #c3182e;
+  color: #c3182e;
+}
 
 
 
@@ -716,190 +759,8 @@ dialog {
   cursor: pointer;
 }
 
-/* @media screen and (min-width: 2200px) {
-  .hero {
-    min-height: 50rem;
-  }
-} */
 
-/* @media screen and (max-width: 768px) {
-  .header ul {
-    display: none;
-  }
-  .small-menu {
-    display: block;
-  }
-  .hero {
-    min-height: 4rem;
-  }
-  .large-padding-section {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  .left-content-text {
-    max-width: 0;
-  }
-  .left-content-text h1 {
-    letter-spacing: 0px;
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 2rem;
-    color: white;
-  }
-  .text-xl {
-    display: none;
-  }
 
-  .text-discount {
-    font-size: 2rem;
-    margin-top: 5px;
-  }
-
-  .products-section-right {
-    padding: 0;
-  }
-  .product-description-container-right {
-    padding-right: 20px;
-    width: 60%;
-  }
-  .product-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-  .product-description {
-    padding-left: 15px;
-  }
-
-  .product-grid {
-    padding: 0;
-    width: 100%;
-  }
-  .product-img {
-    display: flex;
-    height: 450px;
-  }
-  .grid-product-img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .ver-oferta {
-    padding: 10px 25px;
-    border: none;
-    margin: 20px 0;
-    font-size: 1rem;
-    letter-spacing: 0;
-  }
-
-  .products-section-left {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    max-width: 1500px;
-    padding: 0;
-  }
-  .product-description-container-left {
-    padding-right: 0px;
-    width: 60%;
-  }
-
-  .tamanhos {
-    margin-top: 1rem;
-    padding: 0;
-  }
-  .tamanhos-text h1 {
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
-  .icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 9rem;
-  }
-
-  .icon-content-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  .icon-cards-sizes p {
-    display: none;
-  }
-
-  .medium-card h3 {
-    font-size: 1.1rem;
-  }
-  .medium-card p {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  .footer {
-    padding: 0 10px;
-  }
-  .footer-content {
-    width: 70%;
-  }
-  .footer-content-inner p {
-    font-size: 0.9rem;
-  }
-
-  .footer-content-inner {
-    display: block;
-    text-align: center;
-  }
-  .footer-content-inner {
-    text-align: left;
-    padding: 5px 0;
-  }
-  .block-left {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 60%;
-    gap: 50px;
-  }
-  .footer-content-inner {
-    text-align: left;
-    padding: 5px 0;
-    height: 100%;
-  }
-  .footer-title {
-    text-align: center;
-    padding: 0;
-  }
-
-  .address {
-    font-size: 0.8rem;
-    text-align: center;
-    padding: 5px 0;
-  }
-  .phone {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-  .icon-container-inner {
-    text-align: center;
-    height: 30px;
-    margin: 10px 0;
-  }
-  .footer-icon {
-    width: 30px;
-    height: 30px;
-  }
-  .footer-content-logo h1 {
-    margin-top: 0;
-    text-align: center;
-  }
-
-  .footer-content-logo h1 {
-    margin-bottom: 0;
-    margin-top: 10px;
-  }
-} */
 
 @media screen and (max-width: 600px) {
   .header ul {
@@ -965,6 +826,9 @@ dialog {
     width: 100%;
     padding: 0 20px;
   }
+  .product-title{
+    width: 100%;
+  }
   .product-description-right {
     padding: 10px;
     margin-bottom: 30px;
@@ -973,6 +837,7 @@ dialog {
   .grid-product-img {
     width: 100%;
     object-fit: cover;
+    margin: 0;
   }
   .product-img {
     height: 200px;
@@ -1198,9 +1063,6 @@ dialog {
   }
   .product-gallery-photo-carousel {
     width: 250px;
-    height: 250px;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.26);
+    height: 250px; 
   }
 }

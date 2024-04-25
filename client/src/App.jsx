@@ -139,12 +139,17 @@ function App() {
           </div>
         </section>
 
+
+
+        
+
         <section className="products-section-right">
           <div className="products">
             <div className="product-grid">
               <div className="grid-item">
                 <div className="product-info-container">
                   <div className="product-description-container-right">
+                  <div className='block-left-info'>
                     <div className="product-title">
                       Excelência Em Tecnologia e Qualidade
                     </div>
@@ -153,9 +158,7 @@ function App() {
                       estudos e inovações internacionais que são tendências em
                       conforto, saúde, bem-estar e durabilidade.
                     </div>
-                    {/* <div className="btn-info">
-                      <button className="ver-oferta">VER OFERTA</button>
-                    </div> */}
+                    </div>
                   </div>
                   <div className="product-img">
                     <img className="grid-product-img" src="/store-2.jpg" />
@@ -380,7 +383,7 @@ function App() {
           </div>
         </section>
 
-        <OurProducts />
+        <OurProducts onClick={handleWhatsClick}/>
         <Map />
 
         <footer className="footer">

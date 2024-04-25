@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import Modal from './Modal';
 import { useState, useEffect } from 'react';
 
-export default function OurProducts() {
+export default function OurProducts({onClick}) {
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState(null);
@@ -32,6 +33,8 @@ export default function OurProducts() {
   /* calculates the width of the .product-gallery-carousel-container dynamically setting
    the container so you dont have to touch the css for the width. adjust here. 
    for widescreens width is 370 then * the products you want to display. in the small screen the default is 270, if you want to adjust
+
+   ⚠️ the extra 4px just look at the individual element width with dev tools and you see 374 
    */
   useEffect(() => {
     setSmallScreen(window.innerWidth < 600);
@@ -73,10 +76,13 @@ export default function OurProducts() {
           }}
         >
           <div
-            className="product-gallery-container"
-            onClick={() => openModal(filename)}
-          >
-            <img src={filename} className="product-gallery-photo-carousel" />
+            className="product-gallery-container">
+            <img 
+              src={filename} 
+              className="product-gallery-photo-carousel" 
+              onClick={() => openModal(filename)}  
+            />
+            <button className='buyNow'> <i className="bi bi-whatsapp"></i><span className='btnTextBuyNow' onClick={onClick}>COMPRAR AGORA</span> </button>
           </div>
         </div>
       </div>
@@ -119,6 +125,7 @@ export default function OurProducts() {
         >
           <div className="product-gallery-carousel-container">
             {productElements}
+
           </div>
           <button className="carousel-btn next-btn">
             <i className="bi bi-chevron-left" onClick={handleLefClick}></i>
@@ -126,6 +133,7 @@ export default function OurProducts() {
           <button className="carousel-btn prev-btn" onClick={handleRigtClick}>
             <i className="bi bi-chevron-right "></i>
           </button>
+          
         </div>
       </section>
       {modalOpen && (
