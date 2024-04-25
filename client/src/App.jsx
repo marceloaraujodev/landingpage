@@ -13,15 +13,13 @@ function App() {
   const [reviews, setReviews] = useState(reviewsData);
   const [reviewsCurrentIndex, setReviewsCurrentIndex] = useState(0);
 
-
   // const [instaPhoto, setInstaPhoto] = useState();
   const [instaCurrentIndex, setInstaCurrentIndex] = useState(0);
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
 
   const containerWidth = 270;
 
-
-  reviewsCurrentIndex * containerWidth
+  reviewsCurrentIndex * containerWidth;
 
   useEffect(() => {
     // const fetchData = async () => {
@@ -51,7 +49,7 @@ function App() {
   };
 
   function handleWhatsClick() {
-    console.log('click')
+    console.log('click');
     const phone = 554791131999;
 
     const message = '';
@@ -165,25 +163,28 @@ function App() {
                 </div>
               </div>
               <div className="payment-methods">
-                <div className='payment-methods-inner-container'>
+                <div className="payment-methods-inner-container">
                   <i className="bi bi-check2-circle check"></i>
                   <span className="payment-methods-span">
                     12 vezes sem juros no cartão
                   </span>
                 </div>
-                <div className='payment-methods-inner-container'>
+                <div className="payment-methods-inner-container">
                   <i className="bi bi-check2-circle check"></i>
                   <span className="payment-methods-span">
                     Pague com 2 cartões
                   </span>
                 </div>
-                <div className='payment-methods-inner-container'>
-                  <img src='/icon-truck.png' className='truck-icon' alt='frete' />
+                <div className="payment-methods-inner-container">
+                  <img
+                    src="/icon-truck-blue.png"
+                    className="truck-icon"
+                    alt="frete"
+                  />
                   <span className="payment-methods-span">
                     Frete grátis para Brusque e Região
                   </span>
                 </div>
-
               </div>
             </div>
           </div>
@@ -199,13 +200,13 @@ function App() {
                       <img className="grid-product-img" src="/store-1.jpg" />
                     </div>
                     <div className="product-description-container-left">
-                      <div className="product-title">Title</div>
+                      <div className="product-title">CONCEPT COLCHÕES</div>
                       <div className="product-description-left">
-                        O colchão mais ergonômico e suave, combinação de espumas
-                        para um descanso reparador. O colchão mais ergonômico e
-                        suave, combinação de espumas para um descanso reparador.
-                        O colchão mais ergonômico e suave, combinação de espumas
-                        para um descanso reparador.
+                        Com filial em Brusque desde 2022, o grupo Castor Concept
+                        atua há mais de 36 anos no mercado. Atendendo com
+                        satisfação todos os cliente sendo referência de
+                        qualidade, proporcionando qualidade de vida, conforto e
+                        bem estar
                       </div>
                       {/* <div className="btn-info">
                         <button className="ver-oferta">VER OFERTA</button>
@@ -379,12 +380,8 @@ function App() {
           </div>
         </section>
 
-
-       
-
         <OurProducts />
         <Map />
-
 
         <footer className="footer">
           <div className="footer-content-container">
@@ -414,7 +411,8 @@ function App() {
                     </svg>
                   </div>
                   <div className="address">
-                  n° 236 - Rua: Hercilio Luz, sala 001, Brusque - SC, 88350-300
+                    n° 236 - Rua: Hercilio Luz, sala 001, Brusque - SC,
+                    88350-300
                   </div>
                 </div>
               </div>
@@ -476,7 +474,6 @@ function App() {
                 <img src="/logo.jpg" className="logo-footer" />
               </div>
             </div>
-
           </div>
         </footer>
       </div>
@@ -486,8 +483,8 @@ function App() {
 
 export default App;
 
-
-        {/* <section className="tamanhos">
+{
+  /* <section className="tamanhos">
           <div className="tamanhos-text">
             <h1>Diversos tamanhos disponíveis para o seu conforto</h1>
             <p>Medidas em centímetros</p>
@@ -517,9 +514,11 @@ export default App;
               </a>
             </div>
           </div>
-        </section> */}
+        </section> */
+}
 
-        {/* <section className="medium">
+{
+  /* <section className="medium">
           <div className="medium-title">
             O que faz os colchões x serem únicos?
           </div>
@@ -605,9 +604,11 @@ export default App;
               <button className="btn-medium">Saiba mais</button>
             </div>
           </div>
-        </section> */}
+        </section> */
+}
 
-        {/* <section className="hero2">
+{
+  /* <section className="hero2">
           <div className="hero2-title">
             O que faz os colchões x serem únicos?
           </div>
@@ -617,4 +618,5 @@ export default App;
               className="hero2-container-img"
             />
           </div>
-        </section> */}
+        </section> */
+}
