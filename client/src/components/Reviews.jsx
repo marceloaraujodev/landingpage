@@ -146,10 +146,17 @@ export default function Reviews() {
     setSmallScreen(window.innerWidth < 600);
   };
 
-  // const containerWidth = 270;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleRigtClick(); // Move to the next review
+    }, 3000); // Change this value to adjust the interval (e.g., 5000 for every 5 seconds)
+
+    return () => clearInterval(interval); // Cleanup function to clear the interval on component unmount
+  }, [reviewsCurrentIndex, handleRigtClick]);
+
   const carouselWidth = display * containerWidth
   console.log(carouselWidth)
-  // reviewsCurrentIndex * containerWidth;
+
 
   function handleLefClick() {
     if (smallScreen) {
