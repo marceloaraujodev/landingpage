@@ -1,10 +1,7 @@
-// import axios from 'axios';
-// import InstaCode from './InstaCode';
-// import axios from 'axios';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
 import Map from './components/Map';
 import OurProducts from './components/OurProducts';
-// import reviewsData from '../reviews';
 import Reviews from './components/Reviews';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
