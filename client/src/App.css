@@ -918,12 +918,10 @@ dialog {
 
   .product-gallery-title{
     padding: 40px 0;
-    color: blue;
   }
 
   .product-gallery-carousel-container {
-    /* width: 270px;
-    height: 270px; */
+
     display: flex;
     align-items: center;
 
