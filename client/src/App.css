@@ -556,7 +556,7 @@ dialog {
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 0px;
-
+  padding-bottom: 40px;
 }
 .product-gallery-wrapper {
   display: flex;
@@ -918,6 +918,7 @@ dialog {
 
   .product-gallery-title{
     padding: 40px 0;
+    color: blue;
   }
 
   .product-gallery-carousel-container {
