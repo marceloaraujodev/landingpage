@@ -159,7 +159,7 @@ export default function Reviews() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleRightClick(); 
-    }, 3000); 
+    }, 5000); 
 
     return () => clearInterval(interval); // Cleanup function to clear the interval on component unmount
   }, [reviewsCurrentIndex, handleRightClick]);
