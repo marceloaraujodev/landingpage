@@ -562,7 +562,6 @@ dialog {
   display: flex;
   justify-content: space-around;
   padding: 10px 10px;
-
 }
 
 .product-gallery-carousel-wrapper {
@@ -575,7 +574,7 @@ dialog {
   border-radius: 8px;
 }
 .product-gallery-container{
-
+  /* border: 1px solid red; */
   border-radius: 8px;
   background-color: rgb(255, 255, 255);
 }
@@ -588,10 +587,10 @@ dialog {
 /* controls the width of the carousel has code in the ourproduct.js */
 .product-gallery-carousel-container {
   display: flex;
-  justify-content: space-around;
   overflow: hidden;
   text-align: center;
   /* background-color: blue; */
+  width: 1110px;
 }
 
 .product-gallery-photo-carousel {
@@ -926,6 +925,7 @@ dialog {
     height: 270px; */
     display: flex;
     align-items: center;
+
   }
   .product-gallery-photo-carousel {
     width: 250px;

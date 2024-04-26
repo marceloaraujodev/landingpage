@@ -45,11 +45,10 @@ export default function OurProducts({onClick}) {
       }
   }, [smallScreen, displayProducts, productContainerWidth]);
 
-
-
-  const carouselWidth = displayProducts * productContainerWidth;
+ 
   let products = 10;
   let productElements = [];
+
 
 
   for (let i = 1; i < products; i++) {
@@ -80,17 +79,20 @@ export default function OurProducts({onClick}) {
   }
 
 
+
   const handleRightClick = useCallback(() => {
     if (smallScreen) {
       const newIndex = photoCurrentIndex + 1;
       setPhotoCurrentIndex(newIndex >= productElements.length ? 0 : newIndex);
     } else {
       const newIndex = photoCurrentIndex + 1;
-      setPhotoCurrentIndex(newIndex >= productElements.length - 2 ? 0 : newIndex);
+      setPhotoCurrentIndex(newIndex >= productElements.length - 3 ? 0 : newIndex);
     }
   }, [photoCurrentIndex, smallScreen, productElements.length]);
 
-
+  const carouselWidth = displayProducts * productContainerWidth;
+  console.log(carouselWidth)
+  
   // Moves product gallery 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -142,7 +144,7 @@ export default function OurProducts({onClick}) {
           className="product-gallery-carousel-wrapper"
           style={{ width: carouselWidth }}
         >
-          <div className="product-gallery-carousel-container">
+          <div className="product-gallery-carousel-container" >
             {productElements}
 
           </div>
