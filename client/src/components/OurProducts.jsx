@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import Modal from './Modal';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export default function OurProducts({onClick}) {
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
@@ -36,6 +36,7 @@ export default function OurProducts({onClick}) {
 
    ⚠️ the extra 4px just look at the individual element width with dev tools and you see 374 
    */
+
   useEffect(() => {
     setSmallScreen(window.innerWidth < 600);
       if (smallScreen) {
@@ -44,23 +45,12 @@ export default function OurProducts({onClick}) {
       }
   }, [smallScreen, displayProducts, productContainerWidth]);
 
-  // Event handler for window resize
-  const handleResize = () => {
-    setSmallScreen(window.innerWidth < 600);
-  };
 
-  function openModal(imgSrc) {
-    setModalOpen(true);
-    setSelectedImg(imgSrc);
-  }
-
-  function closeModal() {
-    setModalOpen(false);
-  }
 
   const carouselWidth = displayProducts * productContainerWidth;
   let products = 10;
   let productElements = [];
+
 
   for (let i = 1; i < products; i++) {
     const filename = `/product-${i}.JPG`;
@@ -89,6 +79,45 @@ export default function OurProducts({onClick}) {
     );
   }
 
+
+  const handleRightClick = useCallback(() => {
+    if (smallScreen) {
+      const newIndex = photoCurrentIndex + 1;
+      setPhotoCurrentIndex(newIndex >= productElements.length ? 0 : newIndex);
+    } else {
+      const newIndex = photoCurrentIndex + 1;
+      setPhotoCurrentIndex(newIndex >= productElements.length - 2 ? 0 : newIndex);
+    }
+  }, [photoCurrentIndex, smallScreen, productElements.length]);
+
+
+  // Moves product gallery 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleRightClick(); 
+    }, 3000); 
+
+    return () => clearInterval(interval); 
+  }, [photoCurrentIndex, handleRightClick]);
+
+
+  // Event handler for window resize
+  const handleResize = () => {
+    setSmallScreen(window.innerWidth < 600);
+  };
+
+  function openModal(imgSrc) {
+    setModalOpen(true);
+    setSelectedImg(imgSrc);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+  }
+
+
+
+
   function handleLefClick() {
     if (smallScreen) {
       const newIndex = photoCurrentIndex - 1;
@@ -103,17 +132,7 @@ export default function OurProducts({onClick}) {
     }
   }
 
-  function handleRigtClick() {
-    if (smallScreen) {
-      const newIndex = photoCurrentIndex + 1;
-      setPhotoCurrentIndex(newIndex >= productElements.length ? 0 : newIndex);
-    } else {
-      const newIndex = photoCurrentIndex + 1;
-      setPhotoCurrentIndex(
-        newIndex >= productElements.length - 2 ? 0 : newIndex
-      );
-    }
-  }
+
 
   return (
     <>
@@ -130,7 +149,7 @@ export default function OurProducts({onClick}) {
           <button className="carousel-btn next-btn">
             <i className="bi bi-chevron-left" onClick={handleLefClick}></i>
           </button>
-          <button className="carousel-btn prev-btn" onClick={handleRigtClick}>
+          <button className="carousel-btn prev-btn" onClick={handleRightClick}>
             <i className="bi bi-chevron-right "></i>
           </button>
           

@@ -158,8 +158,8 @@ export default function Reviews() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      handleRightClick(); // Move to the next review
-    }, 3000); // Change this value to adjust the interval (e.g., 5000 for every 5 seconds)
+      handleRightClick(); 
+    }, 3000); 
 
     return () => clearInterval(interval); // Cleanup function to clear the interval on component unmount
   }, [reviewsCurrentIndex, handleRightClick]);
@@ -179,8 +179,6 @@ export default function Reviews() {
   }
 
  
-
-
   return (
     <section className="review">
     <h1 className="review-title">Somos 5 estrelas no google!</h1>
@@ -217,10 +215,8 @@ export default function Reviews() {
                         )}
                       </div>
                     </ul>
-                    <div className="review-profession">Web Developer</div>
                     <div className="review-descriptionContainer">
                       <div className="review-text-container">
-                        <i className="fas fa-quote-left pe-2"></i>
                         <p className="review-text">{review.text}</p>
                       </div>
                     </div>

@@ -573,7 +573,6 @@ dialog {
 .product-gallery-container2{
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  
 }
 .product-gallery-container{
 
@@ -879,21 +878,7 @@ dialog {
     display: block;
   }
 
-  .review {
-    padding: 30px 0;
-  }
-  .carouselWrapper {
-    width: 270px;
-  }
-  .carouselContainer {
-    height: 100%;
-  }
-  .review-title {
-    padding: 40px 0;
-  }
-  .review-container {
-    padding: 20px 10px;
-  }
+
 
   .footer-content-container{
     width: 100%;
