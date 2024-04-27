@@ -95,6 +95,8 @@
 }
 .review-text {
   font-size: 0.9rem;
+  font-family: "Montserrat";
+  font-size: 14px;
 }
 /* Style the scrollbar track */
 .review-descriptionContainer::-webkit-scrollbar {
@@ -152,6 +154,7 @@
     width: 250px;
     height: 300px;
   }
+
 
 }
 
