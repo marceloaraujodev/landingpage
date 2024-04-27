@@ -140,6 +140,8 @@ dialog {
   letter-spacing: 1px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.301);
   position: relative;
+  font-family: "Montserrat";
+  font-weight: bold;
 }
 .click-icon {
   height: 35px;
@@ -619,6 +621,8 @@ dialog {
 }
 .btnTextBuyNow{
   margin-left: 5px;
+  font-family: "Montserrat";
+  font-weight: 500;
 }
 .buyNow:hover{
   background-color: white;
