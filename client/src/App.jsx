@@ -93,7 +93,7 @@ function App() {
                   <div className="product-description-container-right">
                   <div className='block-left-info'>
                     <div className="product-title">
-                      Excelência Em Tecnologia e Qualidade
+                      Excelência em tecnologia e qualidade
                     </div>
                     <div className="product-description-right">
                       Trabalhamos com marcas que investem constantemente em

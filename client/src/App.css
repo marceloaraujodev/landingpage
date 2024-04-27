@@ -33,7 +33,7 @@ dialog {
   background-color: transparent;
   font-size: 1.3rem;
   color: white;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 .floatingBtn {
@@ -163,14 +163,18 @@ dialog {
   padding-bottom: 50px;
   /* padding-left: 2.5rem; */
   padding-right: 2.5rem;
-  
+  font-family: "Montserrat";
+  font-size: 14px;
 }
 .products-section-left {
   width: 100%;
   background-color: #f4f1ee;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+  font-family: "Montserrat";
+  font-size: 14px;
 }
+
 .products-section {
   width: 100%;
   margin: 0 auto;
@@ -201,11 +205,11 @@ dialog {
 .product-title {
   font-size: 2rem;
   text-align: center;
-  font-weight: 700;
-  /* width: 600px; */
+  font-weight: 500;
+  width: 600px;
   margin: 0 auto;
   padding-bottom: 10px;
-
+  font-family: "Yeseva One";
 }
 .product-img {
   display: flex;
@@ -221,9 +225,7 @@ dialog {
 .product-description {
   text-align: center;
 }
-.product-description p {
-  text-align: center;
-}
+
 .payment-methods {
   display: flex;
   justify-content: space-around;
@@ -272,6 +274,10 @@ dialog {
 }
 .product-description {
   font-size: 0.8;
+}
+.product-description-left{
+  font-family: "Montserrat";
+  font-size: 14px;
 }
 .btn-info {
   display: flex;
@@ -702,6 +708,10 @@ dialog {
   }
   .product-title{
     width: 100%;
+    font-size: 1.5rem;
+  }
+  .block-left-info{
+    gap: 0;
   }
   .product-description-right {
     padding: 10px;
@@ -720,10 +730,15 @@ dialog {
     max-width: 1500px;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 0px;
   }
   .products-section-left {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  .products-section {
+
+    padding-bottom: 35px;
   }
   .ver-oferta {
     padding: 10px 25px;
@@ -915,7 +930,9 @@ dialog {
     right: 23px;
     font-size: 2.5rem;
   }
-
+  .product-gallery{
+    padding-bottom: 35px;
+  }
   .product-gallery-title{
     padding: 40px 0;
   }
