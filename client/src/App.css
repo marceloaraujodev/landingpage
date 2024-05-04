@@ -210,7 +210,6 @@ dialog {
   font-size: 2rem;
   text-align: center;
   font-weight: 500;
-  width: 600px;
   margin: 0 auto;
   padding-bottom: 10px;
   font-family: "Yeseva One";
@@ -646,6 +645,16 @@ dialog {
 }
 
 
+@media screen and (max-width: 1600px){
+  .products-section-right {
+
+  }
+
+  .grid-product-img {
+    max-width: 650px;
+  }
+
+}
 
 
 @media screen and (max-width: 600px) {
